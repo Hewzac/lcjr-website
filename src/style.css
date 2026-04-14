@@ -62,12 +62,24 @@ main {
     height: 100%;
     display: flex;
 }
+
 .siteSoonContainer {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 40px;
     text-align: center;
     margin: auto;
+}
+.siteSoonDivider {
+    width: 500px;
+    height: 4px;
+    background-color: #000000;
+    margin: auto;
+}
+.siteSoonText {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 footer {
