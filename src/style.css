@@ -58,10 +58,103 @@ ul {
   border-bottom: solid 5px #fc6703;
 }
 
+header {
+  padding: 20px 40px 0 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.headerLogo {
+  height: 40px;
+  display: block;
+  margin-top: auto;
+}
+.mainNavigation {
+  gap: 10px;
+  height: 50px;
+}
+.mainNavList {
+  gap: 40px;
+}
+.mainNavList li {
+  height: 50px;
+}
+.headerA {
+  font-size: 20px;
+  margin: auto;
+  color: black;
+  text-transform: uppercase;
+}
+
 main {
     height: 100%;
     display: flex;
+    flex-direction: column;
+    background-color: blue;
 }
+.firstSection {
+  margin: 0 auto;
+  width: 100%;
+  background-color: green;
+  padding: 70px 60px;
+}
+.firstSection h1 {
+  font-size: 50px;
+  font-weight: 550;
+}
+.firstSection h3 {
+  font-size: 30px;
+}
+
+.secondSection {
+  margin: 0 auto;
+  width: 100%;
+  background-color: red;
+  padding: 60px 60px;
+}
+.secondSectionContent {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: fit-content;
+  gap: 20px; 
+}
+.areaTitle {
+  font-size: 20px;
+  margin: auto;
+}
+.areaList {
+  display: flex;
+  gap: 40px;
+  margin: auto;
+}
+.areaPill {
+  background-color: #333;
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+.areaPill h2 {
+  font-size: 20px;
+}
+
+.thirdSection {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  background-color: yellow;
+  padding: 70px 60px;
+}
+.thirdSectionContent {
+  background-color: red;
+  margin: auto;
+  display: flex;
+  gap: 100px;
+}
+.statisticContainer {
+  background-color: blue;
+  text-align: center;
+  display: flex;
+}
+
 
 .siteSoonContainer {
     display: flex;
@@ -71,8 +164,8 @@ main {
     margin: auto;
 }
 .siteSoonDivider {
-    width: 600px;
-    height: 4px;
+    width: 550px;
+    height: 3px;
     background-color: #000000;
     margin: auto;
 }
