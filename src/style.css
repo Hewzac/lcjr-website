@@ -55,9 +55,33 @@ ul {
   list-style: none;
 }
 #activeLink {
-  border-bottom: solid 5px #fc6703;
+  border-bottom: solid 4px #ffffff;
 }
 
+
+
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #202020;
+    color: white;
+}
+.sectionDivider {
+    width: 95%;
+    height: 3px;
+    background-color: #333;
+    display: flex;
+    margin: auto;
+}
+.firstSection {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding-bottom: 60px;
+}
 header {
   padding: 20px 40px 0 40px;
   display: flex;
@@ -76,29 +100,26 @@ header {
   gap: 40px;
 }
 .mainNavList li {
-  height: 50px;
+  height: 40px;
 }
 .headerA {
   font-size: 20px;
   margin: auto;
-  color: black;
+  color: white;
   text-transform: uppercase;
 }
-
-main {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: blue;
-}
-.firstSection {
-  margin: 0 auto;
-  width: 100%;
-  background-color: green;
-  padding: 70px 60px;
+.firstSectionContent {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: fit-content;
+  gap: 10px;
+  background-color: #857e7e;
+  padding: 20px 40px;
+  border-radius: 10px;
 }
 .firstSection h1 {
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 550;
 }
 .firstSection h3 {
@@ -106,9 +127,7 @@ main {
 }
 
 .secondSection {
-  margin: 0 auto;
   width: 100%;
-  background-color: red;
   padding: 60px 60px;
 }
 .secondSectionContent {
@@ -116,7 +135,7 @@ main {
   flex-direction: column;
   margin: auto;
   width: fit-content;
-  gap: 20px; 
+  gap: 30px;
 }
 .areaTitle {
   font-size: 20px;
@@ -127,20 +146,30 @@ main {
   gap: 40px;
   margin: auto;
 }
-.areaPill {
-  background-color: #333;
+.areaCard {
+  background-color: #6d6d6d;
   padding: 5px 15px;
   border-radius: 10px;
+  height: 200px;
+  width: 250px;
+  overflow: hidden;
+  box-shadow: #575757 0px 0px 20px -4px;
 }
-.areaPill h2 {
+.areaCardTitle {
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+}
+.areaCard h3 {
   font-size: 20px;
+  margin: auto;
 }
 
 .thirdSection {
   margin: 0 auto;
   display: flex;
   width: 100%;
-  background-color: yellow;
   padding: 70px 60px;
 }
 .thirdSectionContent {
@@ -156,24 +185,7 @@ main {
 }
 
 
-.siteSoonContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    text-align: center;
-    margin: auto;
-}
-.siteSoonDivider {
-    width: 550px;
-    height: 3px;
-    background-color: #000000;
-    margin: auto;
-}
-.siteSoonText {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
+
 
 footer {
     margin-top: auto;
@@ -202,4 +214,63 @@ footer {
     height: 30px;
     display: block;
     margin: auto;
+}
+@media (max-width: 700px) {
+  .footerContainer {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  .footerBrandBook {
+    margin: auto;
+  }
+  .footerBrandBook img {
+    height: 25px;
+  }
+  .footerContainer p {
+    font-size: 10px;
+  }
+}
+
+.siteSoonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+    margin: auto;
+}
+.siteSoonDivider {
+    width: 550px;
+    height: 3px;
+    background-color: #000000;
+    margin: auto;
+}
+.siteSoonText {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 75%;
+    margin: auto;
+}
+.footerBrandBook a {
+    display: flex;
+}
+.footerBrandBook h3 {
+    font-size: 20px;
+    color: white;
+    margin: auto;
+}
+@media (max-width: 700px) {
+  .siteSoonContainer {
+    gap: 20px;
+  }
+  .siteSoonDivider {
+    width: 250px;
+    height: 2px;
+  }
+  .siteSoonText h1 {
+    font-size: 20px;
+  }
+  .siteSoonText h2 {
+    font-size: 15px;
+  }
 }
