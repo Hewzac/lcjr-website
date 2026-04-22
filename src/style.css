@@ -12,15 +12,17 @@
   letter-spacing: 1.5px;
 }
 h1, h2, h3, h4, h5, h6, p, span, div, a, li{
-  font-family: montserrat;
+  font-family: bebas neue;
   font-weight: 500;
 }
 span {
     font-weight: 600;
+    color: #ffb347;
+  letter-spacing: 4px;
 }
 html, body {
   line-height: 1.2;
-  background-color: #fafafa;
+  background-color: #0a0a0a;
   height: 100%;
 }
 body {
@@ -31,48 +33,27 @@ body {
 }
 a {
   text-decoration: none;
-  font-weight: bold;
 }
-.button1 {
-  width: fit-content;
-  border-radius: 100px;
-  padding: 15px 20px 15px 20px;
-  margin: auto;
-  background-color: #fc6703;
-  border: none;
-  text-transform: uppercase;
-}
-.button1 a {
-  color: white;
-  font-weight: 800;
-}
-.button1 a:hover {
+.button:hover {
+  box-shadow: #e78446 0px 0px 10px 1px;
   transition: 0.1s;
-  color: #ffe4d2;
+}
+#activeLink {
+  color: #ffb347;
 }
 ul {
   display: flex;
   list-style: none;
 }
-#activeLink {
-  border-bottom: solid 4px #ffffff;
-}
 
 
 
 main {
-    height: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    background-color: #202020;
+    background-color: #0a0a0a;
     color: white;
-}
-.sectionDivider {
-    width: 95%;
-    height: 3px;
-    background-color: #333;
-    display: flex;
-    margin: auto;
 }
 .firstSection {
   margin: 0 auto;
@@ -83,9 +64,13 @@ main {
   padding-bottom: 60px;
 }
 header {
-  padding: 20px 40px 0 40px;
+  padding: 20px 0px 0 0px;
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  border-bottom: 1px solid #414141;
+  width: 95%;
+  margin: auto;
 }
 .headerLogo {
   height: 40px;
@@ -93,97 +78,256 @@ header {
   margin-top: auto;
 }
 .mainNavigation {
-  gap: 10px;
   height: 50px;
+  margin: auto;
 }
 .mainNavList {
-  gap: 40px;
+  gap: 60px;
 }
 .mainNavList li {
   height: 40px;
 }
 .headerA {
   font-size: 20px;
+  font-weight: 500;
   margin: auto;
   color: white;
   text-transform: uppercase;
 }
+.headerA:hover {
+  color: #ffb347;
+  transition: 0.1s;
+}
+.button {
+  background: linear-gradient(90deg, #ffb347, #e78446, #e76c1f);
+  padding: 5px 15px;
+  border-radius: 10px;
+  color: #0a0a0a;
+  width: fit-content;
+  font-size: 20px;
+  margin: auto;
+}
 .firstSectionContent {
   display: flex;
   flex-direction: column;
-  margin: auto;
   width: fit-content;
-  gap: 10px;
-  background-color: #857e7e;
+  gap: 20px;
   padding: 20px 40px;
   border-radius: 10px;
+  width: 600px;
+  margin: auto;
+  text-align: center;
+}
+.firstSectionImage {
+  height: 125px;
+  display: block;
+  margin: auto;
 }
 .firstSection h1 {
-  font-size: 45px;
-  font-weight: 550;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  color: #c0c0c0;
 }
 .firstSection h3 {
-  font-size: 30px;
+  font-size: 20px;
+  
+  color: #ffb347;
 }
-
-.secondSection {
-  width: 100%;
-  padding: 60px 60px;
+.firstSection p {
+  font-size: 17px;
+  color: #c0c0c0;
 }
-.secondSectionContent {
+.firstSectionButton {
+  font-size: 20px;
+  font-weight: 500;
+  margin: auto;
+}
+.statisticsSection {
+  display: flex;
+  justify-content: space-evenly;
+  background: linear-gradient(90deg, #ffb347, #e78446, #e76c1f);
+  padding: 20px 0;
+}
+.statCard {
+  text-align: center;
+  color: #0a0a0a;
+}
+.statCard h1 {
+  font-size: 50px;
+}
+.statDivider {
+  width: 1px;
+  height: 60%;
+  background-color: #0a0a0a;
+  margin: auto 0;
+}
+.serviceSection {
+ width: 100%;
+ padding: 100px 40px;
+ gap: 30px;
+ display: flex;
+ flex-direction: column;
+}
+.serviceTitle {
+  gap: 10px;
   display: flex;
   flex-direction: column;
+}
+.serviceTitle h1 {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  color: #c0c0c0;
+}
+.serviceTitle h3 {
+  font-size: 20px;
+  
+  color: #ffb347;
+}
+.serviceContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  width: 100%;
   margin: auto;
-  width: fit-content;
-  gap: 30px;
+  gap: 5px;
+}
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  width: 100%;
+  padding: 20px 20px;
+  border: 1px solid #414141;
+  gap: 10px;
+}
+.serviceCard:hover {
+  background-color: #252525;
+  transition: 0.1s;
+}
+.serviceCard img {
+  height: 35px;
+  display: block;
+  margin-right: auto;
+}
+.serviceCard h1 {
+  font-size: 25px;
+}
+.serviceCard p {
+  color: #7e7e7e;
+}
+
+.areaSection {
+ width: 100%;
+ padding: 100px 40px;
+ gap: 30px;
+ display: flex;
+ flex-direction: column;
+ background-color: #1a1a1a;
 }
 .areaTitle {
-  font-size: 20px;
-  margin: auto;
-}
-.areaList {
+  gap: 10px;
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+}
+.areaTitle h1 {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  color: #c0c0c0;
+}
+.areaTitle h3 {
+  font-size: 20px;
+  
+  color: #ffb347;
+}
+.areaContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  width: 100%;
   margin: auto;
+  gap: 5px;
 }
 .areaCard {
-  background-color: #6d6d6d;
-  padding: 5px 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: #252525;
+  width: 100%;
+  padding: 20px 20px;
+  border: 1px solid #414141;
+  gap: 10px;
+}
+.areaCard:hover {
+  border-color: #ffb347;
+  background: linear-gradient(0deg, #e7844650, #ffffff00);
+  transition: 0.3s;
+  
+}
+.areaDot {
+  width: 7px;
+  height: 7px;
   border-radius: 10px;
-  height: 200px;
-  width: 250px;
-  overflow: hidden;
-  box-shadow: #575757 0px 0px 20px -4px;
+  background-color: #e78446;
+  box-shadow: #e78446 0px 0px 6px 1px;
 }
-.areaCardTitle {
-  height: 30px;
-  width: 100%;
-  text-align: center;
-  display: flex;
+.areaCard h1 {
+  font-size: 25px;
 }
-.areaCard h3 {
-  font-size: 20px;
-  margin: auto;
+.areaCard p {
+  color: #7e7e7e;
+}
+#moreAreaDot {
+  background-color: #414141;
+  box-shadow: #414141 0px 0px 6px 1px;
 }
 
-.thirdSection {
-  margin: 0 auto;
+.contactSection {
+  padding: 60px 150px;
   display: flex;
+}
+.contactSection h1 {
+  font-size: 70px;
+  letter-spacing: 5px;
+  width: 350px;
+}
+.contactActionContainer {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: auto 0 auto auto;
+}
+.contactActionContainer p {
+  color: #c0c0c0;
+}
+.contactInfoContainer {
+  display: flex;
+  width: auto;
+  gap: 20px;
+}
+.contactInfoContainer img {
+  height: 40px;
+  filter: brightness(0) saturate(100%) invert(67%) sepia(66%) saturate(518%) hue-rotate(338deg) brightness(106%) contrast(101%);
+  display: block;
+  margin: auto 0;
+}
+.contactInfo {
   width: 100%;
-  padding: 70px 60px;
 }
-.thirdSectionContent {
-  background-color: red;
-  margin: auto;
-  display: flex;
-  gap: 100px;
+.contactInfo h1 {
+  width: 100%;
+  font-size: 45px;
 }
-.statisticContainer {
-  background-color: blue;
-  text-align: center;
-  display: flex;
+.contactActionContainer a {
+  color: black;
+  background: linear-gradient(90deg, #ffb347, #e78446, #e76c1f);
+  padding: 10px 40px;
+  width: fit-content;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  border-radius: 5px;
 }
-
 
 
 
@@ -227,10 +371,13 @@ footer {
     height: 25px;
   }
   .footerContainer p {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 
+.siteSoonMain {
+  margin: auto;
+}
 .siteSoonContainer {
     display: flex;
     flex-direction: column;
@@ -240,16 +387,19 @@ footer {
 }
 .siteSoonDivider {
     width: 550px;
-    height: 3px;
-    background-color: #000000;
+    height: 1px;
+    background-color: #414141;
     margin: auto;
 }
 .siteSoonText {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    width: 75%;
+    gap: 30px;
+    width: 85%;
     margin: auto;
+}
+.siteSoonText h1 {
+  font-size: 50px;
 }
 .footerBrandBook a {
     display: flex;
@@ -267,10 +417,62 @@ footer {
     width: 250px;
     height: 2px;
   }
+  .siteSoonText {
+    width: 85%;
+    gap: 15px;
+  }
   .siteSoonText h1 {
-    font-size: 20px;
+    font-size: 30px;
+    width: 65%;
+    margin: auto;
   }
   .siteSoonText h2 {
-    font-size: 15px;
+    font-size: 20px;
   }
+}
+
+
+.teamSectionContent {
+  padding: 60px 0 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+  width: 95%;
+  margin: auto;
+  border-bottom: 1px solid #414141;
+}
+.teamSectionContent h1 {
+  font-size: 45px;
+}
+.teamContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  margin: auto;
+  width: 100%;
+}
+.memberCard {
+  width: 275px;
+  background-color: #1a1a1a;
+  border: 1px solid #414141;
+  padding: 15px 20px;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.memberCard:hover {
+  background-color: #252525;
+  transition: 0.1s;
+}
+.memberCard img {
+  height: 125px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 100px;
+}
+.memberDetailsContainer h1{
+  font-size: 30px;
+}
+.memberDetailsContainer h3 {
+  color: #c0c0c0;
 }
