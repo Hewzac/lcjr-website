@@ -462,10 +462,10 @@ footer {
 }
 .teamContainer {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  gap: 10px;
+  grid-template-columns: auto auto auto;
+  gap: 50px;
   margin: auto;
-  width: 100%;
+  width: 80%;
   justify-content: space-between;
 }
 .memberCard {
@@ -485,7 +485,7 @@ footer {
   height: 125px;
   display: block;
   margin: 0 auto;
-  border-radius: 100px;
+  border-radius: 10px;
 }
 .memberDetailsContainer h1{
   font-size: 30px;
