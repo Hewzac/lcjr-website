@@ -263,6 +263,18 @@ header {
   transition: 0.3s;
   
 }
+#moreAreasCard:hover h1, #moreAreasCard:hover p {
+  color: #ffb347;
+  transition: 0.3s;
+}
+#moreAreasCard:hover #moreAreaDot {
+  background-color: #ffb347;
+  box-shadow: #ffb347 0px 0px 6px 1px;
+  transition: 0.3s;
+}
+#moreAreasCard h1 {
+  color: #7e7e7e;
+}
 .areaDot {
   width: 7px;
   height: 7px;
@@ -275,6 +287,10 @@ header {
 }
 .areaCard p {
   color: #7e7e7e;
+}
+.areaCard a {
+  color: #7e7e7e;
+  font-size: 17px;
 }
 #moreAreaDot {
   background-color: #414141;
@@ -446,7 +462,7 @@ footer {
 }
 .teamContainer {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   gap: 10px;
   margin: auto;
   width: 100%;
