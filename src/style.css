@@ -64,10 +64,9 @@ main {
   padding-bottom: 60px;
 }
 header {
-  padding: 20px 0px 0 0px;
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
-  position: sticky;
   border-bottom: 1px solid #414141;
   width: 95%;
   margin: auto;
@@ -75,22 +74,18 @@ header {
 .headerLogo {
   height: 40px;
   display: block;
-  margin-top: auto;
+  margin: auto 0;
 }
 .mainNavigation {
-  height: 50px;
   margin: auto;
 }
 .mainNavList {
   gap: 60px;
 }
-.mainNavList li {
-  height: 40px;
-}
 .headerA {
   font-size: 20px;
   font-weight: 500;
-  margin: auto;
+  margin: auto 0;
   color: white;
   text-transform: uppercase;
 }
@@ -107,6 +102,25 @@ header {
   font-size: 20px;
   margin: auto;
 }
+@media (max-width: 700px) {
+  .headerLogo {
+    height: 30px;
+  }
+  .mainNavigation {
+    margin: auto 0 auto auto;
+  }
+  .mainNavList {
+    gap: 20px;
+  }
+  .headerA {
+    font-size: 18px;
+  }
+  .button {
+    font-size: 18px;
+  }
+}
+
+
 .firstSectionContent {
   display: flex;
   flex-direction: column;
@@ -143,6 +157,29 @@ header {
   font-weight: 500;
   margin: auto;
 }
+@media (max-width: 1000px) {
+  .firstSectionImage {
+    height: 100px;
+  }
+}
+@media (max-width: 700px) {
+  .firstSection {
+    gap: 30px;
+    padding-bottom: 30px;
+  }
+  .firstSection h1 {
+    font-size: 30px;
+  }
+  .firstSection p {
+    font-size:  15px;
+  }
+  .firstSectionContent {
+    width: 300px;
+    padding: 10px 0;
+  }
+}
+
+
 .statisticsSection {
   display: flex;
   justify-content: space-evenly;
@@ -162,6 +199,19 @@ header {
   background-color: #0a0a0a;
   margin: auto 0;
 }
+@media (max-width: 700px) {
+  .statisticsSection {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    gap: 30px;
+  }
+  .statDivider {
+    display: none;
+  }
+}
+
+
 .serviceSection {
  width: 100%;
  padding: 100px 40px;
@@ -216,6 +266,33 @@ header {
 .serviceCard p {
   color: #7e7e7e;
 }
+@media (max-width: 700px) {
+  .serviceSection {
+    padding: 50px 40px;
+  }
+  .serviceTitle {
+    gap: 5px;
+  }
+  .serviceTitle h1 {
+    font-size: 30px;
+  }
+  .serviceContainer {
+    grid-template-columns: auto;
+  }
+  .serviceCard {
+    gap: 5px;
+  }
+  .serviceCard img {
+    height: 25px;
+  }
+  .serviceCard h1 {
+    font-size: 20px;
+  }
+  .serviceCard h3 {
+    font-size: 17px;
+  }
+}
+
 
 .areaSection {
  width: 100%;
@@ -296,10 +373,35 @@ header {
   background-color: #414141;
   box-shadow: #414141 0px 0px 6px 1px;
 }
+@media (max-width: 700px) {
+  .areaSection {
+    padding: 50px 40px;
+  }
+  .areaTitle {
+    gap: 5px;
+  }
+  .areaTitle h1 {
+    font-size: 30px;
+  }
+  .areaContainer {
+    grid-template-columns: auto auto;
+  }
+  .areaCard {
+    gap: 10px;
+  }
+  .areaCard h1 {
+    font-size: 20px;
+  }
+  .areaCard h3 {
+    font-size: 17px;
+  }
+}
+
 
 .contactSection {
   padding: 60px 150px;
   display: flex;
+  gap: 50px;
 }
 .contactSection h1 {
   font-size: 70px;
@@ -334,7 +436,10 @@ header {
   width: 100%;
   font-size: 45px;
 }
-.contactActionContainer a {
+.contactPhoneNumber a {
+  color: white;
+}
+.contactButton {
   color: black;
   background: linear-gradient(90deg, #ffb347, #e78446, #e76c1f);
   padding: 10px 40px;
@@ -343,6 +448,62 @@ header {
   font-weight: 500;
   letter-spacing: 3px;
   border-radius: 5px;
+}
+@media (max-width: 1200px) {
+  .contactSection {
+    padding: 60px 60px;
+  }
+  .contactSection h1 {
+    font-size: 50px;
+  }
+  .contactActionContainer {
+    gap: 10px;
+  }
+  .contactPhoneNumber {
+    font-size: 35px;
+  }
+  .contactButton {
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 700px) {
+  .contactSection {
+    padding: 40px 20px;
+    gap: 15px;
+    flex-direction: column;
+  }
+  .contactSection h1 {
+    font-size: 30px;
+    text-align: center;
+    margin: auto;
+  }
+  .contactActionContainer {
+    gap: 15px;
+    margin: auto;
+    width: 300px;
+  }
+  .contactActionContainer p {
+    font-size: 14px;
+    text-align: center;
+  }
+  .contactInfoContainer {
+    gap: 10px;
+    margin: auto;
+    text-align: left;
+  }
+  .contactInfoContainer img {
+    height: 30px;
+  }
+  .contactPhoneNumber {
+    font-size: 30px;
+  }
+  .contactButton {
+    font-size: 17px;
+    letter-spacing: 2px;
+    margin: auto;
+    text-align: center;
+  }
 }
 
 
@@ -457,15 +618,20 @@ footer {
   margin: auto;
   border-bottom: 1px solid #414141;
 }
-.teamSectionContent h1 {
+.teamTitle {
+  text-align: center;
   font-size: 45px;
+  border-bottom: 5px solid #ffb347;
+  width: fit-content;
+  margin: auto;
+  padding-bottom: 4px;
 }
 .teamContainer {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 50px;
-  margin: auto;
-  width: 80%;
+  margin: 0 auto;
+  width: 1000px;
   justify-content: space-between;
 }
 .memberCard {
@@ -487,9 +653,119 @@ footer {
   margin: 0 auto;
   border-radius: 10px;
 }
+.memberDetailsContainer {
+    display: flex;
+    flex-direction: column;
+}
 .memberDetailsContainer h1{
   font-size: 30px;
 }
 .memberDetailsContainer h3 {
   color: #c0c0c0;
+}
+@media (max-width: 1200px) {
+  .teamTitle {
+    font-size: 35px;
+  }
+  .teamContainer {
+    gap: 40px;
+    width: 100%;
+    grid-template-columns: auto auto;
+    justify-content: center;
+  }
+  .memberCard {
+    width: 300px;
+  }
+}
+@media (max-width: 700px) {
+  .teamSectionContent {
+    gap: 40px;
+  }
+  .teamTitle {
+    font-size: 30px;
+  }
+  .teamContainer {
+    grid-template-columns: auto auto auto;
+  }
+  .memberCard {
+    width: 130px;
+    text-align: center;
+  }
+  .memberCard img {
+    height: 70px;
+  }
+  .memberDetailsContainer {
+    gap: 5px;
+  }
+  .memberDetailsContainer h1 {
+    font-size: 20px;
+  }
+  .memberDetailsContainer h3 {
+    font-size: 15px;
+  }
+}
+@media (max-width: 550px) {
+  .teamSectionContent {
+    padding: 60px 0;
+  }
+  .teamContainer {
+    grid-template-columns: auto auto;
+  }
+  .teamTitle {
+    border: none;
+  }
+}
+
+
+.aboutSectionContent {
+  padding: 60px 0 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+  width: 95%;
+  margin: auto;
+  border-bottom: 1px solid #414141;
+}
+.aboutSectionContent h1 {
+  font-size: 45px;
+  text-align: center;
+}
+.aboutContainer {
+  margin: auto;
+  width: 80%;
+  gap: 35px;
+  display: flex;
+  flex-direction: column;
+}
+.aboutQuoteContainer {
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.aboutQuoteContainer h3 {
+  color: #c0c0c0;
+}
+.aboutQuoteContainer h2 {
+  font-size: 35px;
+  
+}
+.aboutContainer p {
+  font-size: 25px;
+  border-left: solid 5px #ffb347;
+  padding-left: 15px;
+}
+@media (max-width: 700px) {
+  .aboutSectionContent {
+    gap: 40px;
+    padding: 60px 0 ;
+  }
+  .aboutSectionContent h1 {
+    font-size: 35px;
+  }
+  .aboutQuoteContainer h2 {
+    font-size: 25px;
+  }
+  .aboutContainer p {
+    font-size: 20px;
+  }
 }
