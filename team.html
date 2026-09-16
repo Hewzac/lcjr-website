@@ -12,7 +12,7 @@
     <meta property="og:description" content="A great service needs a greater team. Meet the LCJR crew.">
     <meta property="og:image" content="https://lcjr.com/images/lcjr-og.png">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="/src/style.css?v=4">
+    <link rel="stylesheet" href="/src/style.css?v=5">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -72,71 +72,73 @@
 
         <section class="section">
             <div class="container">
-                <div class="grid grid--3 reveal">
-                    <article class="member">
-                        <div class="member-photo">
-                            <img src="/images/portrait_placeholder.png" alt="Aiden Mitchell" loading="lazy">
-                        </div>
-                        <div class="member-body">
-                            <h4>Aiden Mitchell</h4>
-                            <div class="member-role">Founder</div>
-                        </div>
-                    </article>
 
-                    <article class="member">
-                        <div class="member-photo">
-                            <img src="/images/portrait_placeholder.png" alt="Logan Darnell" loading="lazy">
-                        </div>
-                        <div class="member-body">
-                            <h4>Logan Darnell</h4>
-                            <div class="member-role">Co-Founder</div>
-                        </div>
-                    </article>
+                <div class="team-group reveal">
+                    <h2 class="team-label">Leadership</h2>
 
-                    <article class="member">
-                        <div class="member-photo">
-                            <img src="/images/portrait_placeholder.png" alt="Robert Alford" loading="lazy">
-                        </div>
-                        <div class="member-body">
-                            <h4>Robert Alford</h4>
-                            <div class="member-role">Employee</div>
-                        </div>
-                    </article>
-
-                    <article class="member">
-                        <div class="member-photo">
-                            <img src="/images/portrait_placeholder.png" alt="Jimmy Sams" loading="lazy">
-                        </div>
-                        <div class="member-body">
-                            <h4>Jimmy Sams</h4>
-                            <div class="member-role">Employee</div>
-                        </div>
-                    </article>
-
-                    <article class="member">
-                        <div class="member-photo">
-                            <img src="/images/portrait_placeholder.png" alt="Zach Hewitt" loading="lazy">
-                        </div>
+                    <article class="member member--lead">
+                        <div class="member-avatar" aria-hidden="true">ZH</div>
                         <div class="member-body">
                             <h4>Zach Hewitt</h4>
-                            <div class="member-role">Marketing Technician</div>
+                            <div class="member-role">President &amp; Manager</div>
+                            <p>Runs the business end of LCJR — quotes, scheduling, and the standing
+                                commercial accounts. If a job needs sorting out, this is the desk it
+                                lands on.</p>
                         </div>
                     </article>
+                </div>
 
-                    <article class="member">
-                        <div class="member-photo">
-                            <img src="/images/portrait_placeholder.png" alt="Maddox Stamper" loading="lazy">
-                        </div>
-                        <div class="member-body">
-                            <h4>Maddox Stamper</h4>
-                            <div class="member-role">Employee</div>
-                        </div>
-                    </article>
+                <div class="team-group reveal">
+                    <h2 class="team-label">Supervisors</h2>
+
+                    <div class="grid grid--3">
+                        <article class="member">
+                            <div class="member-avatar" aria-hidden="true">AM</div>
+                            <div class="member-body">
+                                <h4>Aiden Mitchell</h4>
+                                <div class="member-role">Supervisor</div>
+                            </div>
+                        </article>
+
+                        <article class="member">
+                            <div class="member-avatar" aria-hidden="true">JS</div>
+                            <div class="member-body">
+                                <h4>Jimmy Sams</h4>
+                                <div class="member-role">Supervisor</div>
+                            </div>
+                        </article>
+
+                        <article class="member">
+                            <div class="member-avatar" aria-hidden="true">RA</div>
+                            <div class="member-body">
+                                <h4>Robert Alford</h4>
+                                <div class="member-role">Supervisor</div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section section--alt">
+            <div class="container">
+                <div class="owner reveal">
+                    <div class="owner-mark" aria-hidden="true">HC</div>
+                    <div>
+                        <span class="eyebrow">Ownership</span>
+                        <h3 style="margin-top: 12px;">A Hewcore Corp. Company</h3>
+                        <p>Lewis-Clark Junk Removal is owned and operated by <strong>Hewcore Corp.</strong>
+                            Hewcore handles the business side — the brand, the systems, and the software
+                            that keeps jobs moving — so the crew can keep their attention on the trucks.</p>
+                        <p>Same local company, same people on the job. The name on the paperwork just
+                            gives us a real backbone to grow on.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section section--alt section--tight">
+        <section class="section section--tight">
             <div class="container">
                 <div class="section-head is-center reveal" style="margin-bottom: 0;">
                     <span class="eyebrow">Hiring</span>
@@ -190,6 +192,10 @@
                 <div class="footer-brand">
                     <a href="/"><img src="/images/lcjr-emblem-light.png" alt="Lewis-Clark Junk Removal"></a>
                     <p>Locally owned junk removal serving the Lewis-Clark Valley and the towns around it.</p>
+                    <p class="footer-owner">
+                        <span class="owner-dot" aria-hidden="true">HC</span>
+                        <span>A <strong>Hewcore Corp.</strong> company</span>
+                    </p>
                     <div class="footer-social">
                         <a href="https://www.instagram.com/lewisclarkjunkremoval/" target="_blank" rel="noopener"
                             aria-label="Lewis-Clark Junk Removal on Instagram">
@@ -251,7 +257,7 @@
         </div>
     </footer>
 
-    <script src="/src/main.js?v=4" defer></script>
+    <script src="/src/main.js?v=5" defer></script>
 </body>
 
 </html>
