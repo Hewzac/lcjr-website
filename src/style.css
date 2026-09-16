@@ -1143,10 +1143,12 @@ a.value:hover { color: var(--green-400); }
 .surcharge-block h3 { margin-bottom: 8px; }
 .surcharge-note { font-size: .94rem; margin-bottom: 20px; }
 
+/* Single column on purpose: the form card is never much wider than 600px,
+   and two columns forced both the label and its note to wrap. */
 .surcharge-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: 1fr;
+  gap: 10px;
 }
 .surcharge-row {
   display: grid;
@@ -1160,7 +1162,9 @@ a.value:hover { color: var(--green-400); }
   transition: border-color .18s ease;
 }
 .surcharge-row.is-active { border-color: var(--green-line); background: var(--surface-2); }
+.surcharge-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .surcharge-label { font-weight: 600; color: var(--ink); font-size: .95rem; }
+.surcharge-note-inline { font-size: .78rem; color: var(--muted); line-height: 1.35; }
 .surcharge-each { font-size: .82rem; color: var(--muted); white-space: nowrap; }
 
 .stepper {
@@ -1678,7 +1682,6 @@ a.value:hover { color: var(--green-400); }
   .owner { grid-template-columns: 1fr; gap: 20px; }
 
   .load-group { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .surcharge-grid { grid-template-columns: 1fr; }
   .surcharge-row { grid-template-columns: minmax(0, 1fr) auto; row-gap: 8px; }
   .surcharge-each { grid-column: 1; grid-row: 2; }
   .stepper { grid-column: 2; grid-row: 1 / span 2; }

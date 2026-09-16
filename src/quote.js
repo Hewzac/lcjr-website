@@ -23,16 +23,25 @@
 (function () {
   "use strict";
 
-  var API_BASE = "https://app.lcjunk.com";
+  var root = document.getElementById("quote-app");
+  if (!root) return;
+
+  /*
+   * Where the ops app lives. Set `data-api-base` on #quote-app to point at a
+   * local worker or a staging deploy without touching this file — e.g.
+   * data-api-base="http://localhost:5273" while running the ops repo's
+   * `npm run dev`.
+   *
+   * Whatever origin is used here must also be listed in PUBLIC_SITE_ORIGINS
+   * on the ops side, or the browser will refuse to read the response.
+   */
+  var API_BASE = (root.dataset.apiBase || "https://app.lcjunk.com").replace(/\/$/, "");
 
   // The sample price list is for local development only — it lets the flow be
   // built and tested before the endpoint ships. It must never drive a live
   // page, because a baked-in price list silently drifts from the database.
   var IS_LOCAL = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
   var PRICING_TIMEOUT_MS = 6000;
-
-  var root = document.getElementById("quote-app");
-  if (!root) return;
 
   /* ------------------------------------------------------------- State -- */
 
@@ -114,6 +123,9 @@
           key: s.key,
           label: s.label,
           priceCents: Number(s.priceCents != null ? s.priceCents : s.price_cents),
+          // e.g. "Per tire, rims add $5" — worth showing, it answers the
+          // question the customer was about to phone about.
+          note: s.note || "",
         };
       }),
       serviceZips: zips.map(function (z) {
@@ -371,7 +383,10 @@
     pricing.surcharges.forEach(function (s) {
       var row = el("div", { class: "surcharge-row" });
       var labelId = "sur-" + s.key;
-      row.appendChild(el("span", { class: "surcharge-label", id: labelId + "-label", text: s.label }));
+      var labelWrap = el("div", { class: "surcharge-text" });
+      labelWrap.appendChild(el("span", { class: "surcharge-label", id: labelId + "-label", text: s.label }));
+      if (s.note) labelWrap.appendChild(el("span", { class: "surcharge-note-inline", text: s.note }));
+      row.appendChild(labelWrap);
       row.appendChild(el("span", { class: "surcharge-each", text: formatCents(s.priceCents) + " each" }));
 
       var stepper = el("div", { class: "stepper" });

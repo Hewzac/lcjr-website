@@ -1,8 +1,11 @@
 # What the website needs from the ops app
 
-Written from the marketing site's side, against the integration spec. The
-quote flow is **built and working** — it is wired to the contract below and
-currently has nothing to talk to.
+Written from the marketing site's side, against the integration spec.
+
+**Both endpoints now exist** in the ops repo and the round trip has been run
+end to end against a local D1: the site fetched live pricing, a browser
+submission landed as a `jobs` row with `source = 'website'`, and a forged
+`calculatorEstimateCents` was discarded in favour of the server's own maths.
 
 Website: `lcjr.com` (see open question 1) · Ops app: `app.lcjunk.com`
 Client code: [`src/quote.js`](../src/quote.js)
@@ -16,13 +19,17 @@ Client code: [`src/quote.js`](../src/quote.js)
 | ZIP gate, calculator, details form, partial capture | Built |
 | Estimate maths in integer cents | Built, verified |
 | Payload matching the spec's `createJobRequest` shape | Built, verified |
-| `GET /api/pricing` | **Needed from ops** |
-| `POST /api/requests` | **Needed from ops** |
+| `GET /api/pricing` | **Built** — `app/src/routes/api/pricing.ts` in the ops repo |
+| `POST /api/requests` | **Built** — `app/src/routes/api/requests.ts` in the ops repo |
 | Photo upload | Deliberately deferred to phase two |
 
-Until both endpoints exist the page degrades on purpose: a failed pricing
-fetch hides the calculator and shows call-and-text instead, rather than
-rendering prices that might disagree with a supervisor's screen.
+The page still degrades on purpose: a failed pricing fetch hides the
+calculator and shows call-and-text instead, rather than rendering prices that
+might disagree with a supervisor's screen.
+
+Point the site at a different API with `data-api-base` on `#quote-app` in
+`quote.html` — e.g. `http://localhost:5273` while running the ops repo's dev
+server. Whatever origin is used must also appear in `PUBLIC_SITE_ORIGINS`.
 
 ---
 
@@ -88,12 +95,14 @@ The exact body the site sends today, captured from a live run:
 }
 ```
 
-**Two fields are additions to the spec's table — confirm or drop them:**
+**Two fields were additions to the spec's table. Both are now settled:**
 
-- `state` — `"ID"` or `"WA"`, from the ZIP lookup. Included because §2 of the
-  spec says to keep the state on the submission for the labour-law logic.
-- `source` — always `"website"`, to distinguish these from `/ops/intake`
-  phone-ups. Drop it if the ops app already infers this.
+- `state` — accepted but **ignored**. `jobs` has no state column, and the
+  endpoint derives city and state from `service_area_zips` rather than trusting
+  a field a stranger can set. The site still sends it; it costs nothing.
+- `source` — **kept**, and now a real column. Migration `0012_job_source.sql`
+  adds `jobs.source` defaulting to `'ops_intake'`, which is accurate for every
+  existing row because there was no public endpoint when they were written.
 
 ### Response the site expects
 
