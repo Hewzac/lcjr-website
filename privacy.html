@@ -14,9 +14,11 @@
       [MAILING ADDRESS]      — a real address people can write to
       [PRIVACY EMAIL]        — a mailbox someone actually reads
       [EFFECTIVE DATE]       — the date you publish this
-      [FORM PROVIDER]        — whoever ends up receiving the quote form
-                               (Formspree, etc.). If you never wire up the
-                               form, delete that bullet in section 3.
+
+    Section 2 describes the estimate tool field-by-field, including the
+    partial-submission behaviour, and section 5 says requests go to the ops
+    app rather than a third-party form service. If the quote flow changes what
+    it collects, section 2 has to change with it.
 
     If you later add analytics, a tracking pixel, a chat widget, or cookies,
     section 4 stops being true and must be updated.
@@ -103,10 +105,13 @@
 
                     <div class="legal-note">
                         <h3>The short version</h3>
-                        <p>We collect your name, phone number, and a description of the job — because we
-                            can't quote or schedule hauling without them. We don't sell it, we don't
-                            advertise to you with it, and this site runs no analytics, no tracking pixels,
-                            and no cookies. Ask us to delete your information and we will.</p>
+                        <p>We collect your name, phone number, ZIP code and a description of the job —
+                            because we can't price or schedule hauling without them. It goes to our own
+                            dispatch system, not a lead broker. We don't sell it, we don't advertise to you
+                            with it, and this site runs no analytics, no tracking pixels, and no cookies.
+                            One thing to know: if you get partway through the estimate tool and leave, a
+                            name, phone number and ZIP still reach us so we can follow up. Ask us to delete
+                            your information and we will.</p>
                     </div>
 
                     <nav class="legal-toc" aria-label="Contents">
@@ -137,35 +142,55 @@
 
                     <h2 id="collect">2. What we collect</h2>
 
-                    <h3>What you type into the quote form</h3>
-                    <p>The form on our <a href="/quote.html">quote page</a> asks for exactly this, and
-                        nothing more:</p>
+                    <h3>What you enter in the estimate tool</h3>
+                    <p>The tool on our <a href="/quote.html">quote page</a> runs in three steps, and this
+                        is everything it takes:</p>
                     <ul>
+                        <li><strong>Your ZIP code</strong> — asked first, so we can tell you straight away
+                            whether we cover your area before you fill anything else in.</li>
                         <li><strong>Your name</strong> and <strong>phone number</strong> — required, because
                             we have to be able to reach you with a price.</li>
                         <li><strong>Email address</strong> — optional. Leave it blank if you'd rather we
                             only call or text.</li>
-                        <li><strong>Job type</strong> — residential pickup, estate cleanout, construction
-                            debris, yard waste, or a business account.</li>
-                        <li><strong>City</strong> — Lewiston, Clarkston, Asotin, or somewhere else.</li>
+                        <li><strong>Street address and city</strong> — optional at this stage, but it saves
+                            a phone call later.</li>
+                        <li><strong>Load size and any special items</strong> — which truck fraction you
+                            picked, and counts of things like mattresses, tires or appliances. We also keep
+                            <strong>the estimate figure you were shown</strong>, so a supervisor can see the
+                            same number you saw.</li>
                         <li><strong>What needs hauling</strong> — a free-text description. Whatever you
                             choose to put here comes to us, so only include what you want us to have.</li>
+                        <li><strong>Access details</strong> — where the items are, flights of stairs, where
+                            the truck can park, and any notes you add such as a gate code or a dog in the
+                            yard.</li>
                         <li><strong>Timing</strong> — how soon you need it gone.</li>
+                        <li><strong>Whether it's for a business</strong> — commercial jobs are billed
+                            differently.</li>
                     </ul>
                     <p>We do not ask for, and have no use for, your date of birth, Social Security number,
-                        driver's license, or any financial account details. If a form or a caller ever asks
-                        you for those while claiming to be us, it isn't us.</p>
+                        driver's license, or any financial account details. <strong>The estimate tool never
+                        takes payment</strong> — there is no card field anywhere on this site. If a form or
+                        a caller ever asks you for those while claiming to be us, it isn't us.</p>
+
+                    <h3>If you start the form and don't finish it</h3>
+                    <p>Worth being straight about: once you have given us a <strong>name, phone number and
+                        ZIP code</strong>, we send that much to our dispatch system even if you close the
+                        page without finishing. It gets flagged as incomplete, and a supervisor may call to
+                        ask what you needed.</p>
+                    <p>We do this because a half-finished request usually means somebody still wants their
+                        junk gone. If you'd rather we forget it, call or email and we'll delete it — see
+                        <a href="#rights">Your choices</a> below.</p>
 
                     <h3>What you tell us another way</h3>
-                    <p>Most of our work starts with a phone call, a text, or an Instagram message. When it
+                    <p>Plenty of our work starts with a phone call, a text, or an Instagram message. When it
                         does, we end up with whatever you sent: your phone number, the content of your
                         messages, and any <strong>photos of the pile or the property</strong> you send to
                         help us price the job.</p>
 
                     <h3>What we need to actually do the work</h3>
-                    <p>Once you book, we need the <strong>service address</strong> and access details — a
-                        gate code, where the items are, which door to use. We collect that at booking, not
-                        from the website.</p>
+                    <p>Once a job is booked, we need the <strong>service address</strong> and enough access
+                        detail to turn up and find the stuff. If you didn't give it through the website, a
+                        supervisor takes it over the phone.</p>
 
                     <h3>What the website itself records</h3>
                     <p>Our web host keeps standard server logs, which typically include IP addresses, the
@@ -201,9 +226,10 @@
                     <ul>
                         <li><strong>Our crew.</strong> Whoever is running your job sees your name, address,
                             phone number and what needs moving.</li>
-                        <li><strong>[FORM PROVIDER].</strong> Quote form submissions pass through a
-                            third-party form service on their way to our inbox, and are stored there under
-                            their privacy terms.</li>
+                        <li><strong>Our own dispatch system.</strong> Estimate requests go straight into
+                            the software we use to run jobs, which is operated by Hewcore Corp. for us and
+                            hosted on Cloudflare. It is staff-only — there is no customer login and no
+                            public view of it. No third-party lead service sits in the middle.</li>
                         <li><strong>Ordinary service providers.</strong> Our web host, our email and phone
                             providers, and — for commercial accounts — our bookkeeping and invoicing tools.
                             They handle the data to provide their service to us.</li>

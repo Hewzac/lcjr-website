@@ -58,103 +58,42 @@
     </header>
 
     <main id="main">
-
         <section class="page-head">
             <div class="container">
                 <nav class="breadcrumb" aria-label="Breadcrumb">
                     <a href="/">Home</a> <span aria-hidden="true">/</span> <span>Get a Quote</span>
                 </nav>
                 <span class="eyebrow">Free &amp; No Obligation</span>
-                <h1>Get A <span class="accent">Quote</span></h1>
-                <p class="lead">Tell us what you've got. We'll come back with one flat price — no
-                    deposit, no pressure, no surprise fees at the end.</p>
+                <h1>Get An <span class="accent">Estimate</span></h1>
+                <p class="lead">Three quick steps and you will see a ballpark number. A supervisor confirms
+                    the real price after looking at the job &mdash; no deposit, no card, nothing owed until
+                    you have spoken to a person.</p>
             </div>
         </section>
 
         <section class="section">
             <div class="container quote-layout">
 
-                <div class="form-card reveal">
-                    <!--
-                        FORM SETUP — this form needs an endpoint before it can deliver mail.
-                        Easiest option: create a free form at formspree.io and replace
-                        YOUR_FORM_ID below with the id it gives you. Until then, the call and
-                        text links on this page are the working contact paths.
-                    -->
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                        <div class="field-row">
-                            <div class="field">
-                                <label for="name">Your name</label>
-                                <input id="name" name="name" type="text" autocomplete="name" required>
-                            </div>
-                            <div class="field">
-                                <label for="phone">Phone</label>
-                                <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="email">Email <span class="field-optional">(optional)</span></label>
-                            <input id="email" name="email" type="email" autocomplete="email">
-                        </div>
-
-                        <div class="field-row">
-                            <div class="field">
-                                <label for="type">Job type</label>
-                                <select id="type" name="type">
-                                    <option value="residential">Residential — one-off pickup</option>
-                                    <option value="estate">Estate / full cleanout</option>
-                                    <option value="construction">Construction debris</option>
-                                    <option value="yard">Yard &amp; green waste</option>
-                                    <option value="business">Business / commercial account</option>
-                                </select>
-                            </div>
-                            <div class="field">
-                                <label for="city">City</label>
-                                <select id="city" name="city">
-                                    <option value="lewiston">Lewiston, ID</option>
-                                    <option value="clarkston">Clarkston, WA</option>
-                                    <option value="asotin">Asotin, WA</option>
-                                    <option value="other">Somewhere else</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="details">What needs hauling?</label>
-                            <textarea id="details" name="details"
-                                placeholder="A couch, two mattresses and about ten bags of garage stuff. Everything's in the driveway."
-                                required></textarea>
-                        </div>
-
-                        <div class="field">
-                            <label for="timing">When do you need it gone?</label>
-                            <select id="timing" name="timing">
-                                <option value="asap">As soon as possible</option>
-                                <option value="week">Within the week</option>
-                                <option value="flexible">I'm flexible</option>
-                                <option value="recurring">Recurring / ongoing</option>
-                            </select>
-                        </div>
-
-                        <button class="btn btn--primary" type="submit" style="width: 100%;">Send My Request</button>
-
-                        <p class="form-note">We'll get back to you the same day during business hours.
-                            Prefer to talk it through? Call or text
-                            <a href="tel:+12081112222"><strong>(208) 111-2222</strong></a>.</p>
-
-                        <p class="form-note">We use what you send here to quote and schedule your job —
-                            nothing else. We don't sell it and we don't add you to a mailing list. See the
-                            <a href="/privacy.html">Privacy Policy</a> for the details, and the
-                            <a href="/terms.html">Terms of Service</a> for what we can and can't haul.</p>
-                    </form>
+                <!--
+                    The whole flow is rendered by src/quote.js against the ops app at
+                    app.lcjunk.com. If GET /api/pricing fails the script replaces this
+                    with a call-and-text panel rather than showing prices it cannot
+                    stand behind.
+                -->
+                <div id="quote-app" class="form-card">
+                    <noscript>
+                        <h2>The estimate tool needs JavaScript</h2>
+                        <p class="lead">It is switched off in this browser, so the calculator will not run.
+                            Call or text <a href="tel:+12081112222"><strong>(208) 111-2222</strong></a> and we
+                            will price the job with you directly &mdash; a photo of the pile does it fastest.</p>
+                    </noscript>
                 </div>
 
                 <aside>
                     <div class="aside-card aside-card--accent reveal">
                         <h3>Faster: Send a Photo</h3>
                         <p>The quickest way to a price is a picture. Text a photo of the pile to
-                            <strong>(208) 111-2222</strong> and we'll usually quote it within the hour.</p>
+                            <strong>(208) 111-2222</strong> and we will come back to you directly.</p>
                         <div class="btn-row" style="margin-top: 20px;">
                             <a class="btn btn--primary" href="sms:+12081112222">Text a Photo</a>
                         </div>
@@ -166,25 +105,33 @@
                             <li class="step">
                                 <span class="step-num" aria-hidden="true">1</span>
                                 <div>
-                                    <h4>We Read It</h4>
-                                    <p>Same day during business hours.</p>
+                                    <h4>A Supervisor Reviews It</h4>
+                                    <p>Your request goes straight into our job queue.</p>
                                 </div>
                             </li>
                             <li class="step">
                                 <span class="step-num" aria-hidden="true">2</span>
                                 <div>
-                                    <h4>You Get a Price</h4>
-                                    <p>One flat number, nothing added later.</p>
+                                    <h4>They Call You Back</h4>
+                                    <p>To confirm what is there and set the real price.</p>
                                 </div>
                             </li>
                             <li class="step">
                                 <span class="step-num" aria-hidden="true">3</span>
                                 <div>
-                                    <h4>We Pick a Time</h4>
-                                    <p>Most valley jobs happen within 24 hours.</p>
+                                    <h4>You Pick a Time</h4>
+                                    <p>Scheduling happens on that call, not before.</p>
                                 </div>
                             </li>
                         </ol>
+                    </div>
+
+                    <div class="aside-card reveal">
+                        <h3>Why It Is Only An Estimate</h3>
+                        <p>Pricing goes by how much room your load takes up in the truck. The calculator
+                            works from your description; the supervisor works from the actual pile. Most of
+                            the time they match. When they do not, you hear the real number before anyone
+                            lifts anything.</p>
                     </div>
 
                     <div class="aside-card reveal">
@@ -194,6 +141,14 @@
                         <div class="btn-row" style="margin-top: 20px;">
                             <a class="btn btn--ghost" href="/b2b.html">See B2B Services</a>
                         </div>
+                    </div>
+
+                    <div class="aside-card reveal">
+                        <h3>Your Information</h3>
+                        <p>What you enter goes to our own dispatch system so a supervisor can price and
+                            schedule the job. We do not sell it. See the
+                            <a class="accent" href="/privacy.html"><strong>Privacy Policy</strong></a> and
+                            <a class="accent" href="/terms.html"><strong>Terms of Service</strong></a>.</p>
                     </div>
                 </aside>
 
@@ -274,16 +229,7 @@
     </footer>
 
     <script src="/src/main.js?v=5" defer></script>
-    <script>
-        // Preselect "business" when arriving from the B2B page.
-        (function () {
-            var type = new URLSearchParams(window.location.search).get("type");
-            var select = document.getElementById("type");
-            if (!type || !select) return;
-            var match = Array.prototype.find.call(select.options, function (o) { return o.value === type; });
-            if (match) select.value = type;
-        })();
-    </script>
+    <script src="/src/quote.js?v=5" defer></script>
 </body>
 
 </html>

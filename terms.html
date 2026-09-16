@@ -22,9 +22,14 @@
       [N]                    — damage claim window, in days (7 is common)
       [NET TERMS]            — commercial payment terms, e.g. "net 30"
 
-    If you start taking deposits, charging cancellation fees, or carrying
-    specific insurance you want to advertise, sections 5, 6 and 10 need to
-    change to match.
+    Section 8 states the deposit rule as 25% on jobs at or over $400, taken by
+    a supervisor after the real price is set and never through the website.
+    That mirrors the ops app. If the threshold or percentage changes there,
+    change it here too or the two will disagree in front of a customer.
+
+    Section 3 draws the estimate-vs-quote line that the quote page relies on.
+    If you start charging cancellation fees or carry insurance you want to
+    advertise, sections 5 and 10 need to change to match.
 -->
 <html lang="en">
 
@@ -108,10 +113,11 @@
 
                     <div class="legal-note">
                         <h3>The short version</h3>
-                        <p>You get a flat price before we start, based on how much space the load takes up.
-                            We can't take hazardous material. Once it's on the truck, it's ours to dispose
-                            of, so check the pile before we load. Residential jobs are paid when the work
-                            is done; business accounts are invoiced.</p>
+                        <p>The number the website's estimate tool shows you is an <strong>estimate</strong>.
+                            The real price is set by a supervisor after they've seen the job, and you hear it
+                            before anyone lifts anything. We can't take hazardous material. Once it's on the
+                            truck, it's ours to dispose of, so check the pile before we load. Residential
+                            jobs are paid when the work is done; business accounts are invoiced.</p>
                     </div>
 
                     <nav class="legal-toc" aria-label="Contents">
@@ -158,11 +164,16 @@
                         not weight, not hourly. You get one flat number before we start work, and that
                         number doesn't change while we're loading.</p>
 
-                    <h3>Quotes are based on what you tell us</h3>
-                    <p>An estimate given over the phone, by text, from photos, or through the form on this
-                        site relies on the description you give us. It's an estimate, not a final price.
-                        The binding number is the one we give you on site, once we can see the actual load,
-                        and before any work begins.</p>
+                    <h3>The online estimate tool is not a quote</h3>
+                    <p>The calculator on our <a href="/quote.html">quote page</a> works from what you tell
+                        it — the load fraction you pick and the items you list. It produces an
+                        <strong>estimate</strong>, and we label it that way on every screen because the
+                        distinction matters.</p>
+                    <p>The same goes for a figure given over the phone, by text, or from photos. All of
+                        them rest on your description of the job. <strong>The binding number is the one a
+                        supervisor gives you on site</strong>, once we can see the actual load, and always
+                        before any work begins. Most of the time it matches the estimate. When it doesn't,
+                        you get the real number first and you're free to decline.</p>
 
                     <h3>When a price can change</h3>
                     <p>If what's actually there is materially different from what was described — more
@@ -189,8 +200,9 @@
                     <h2 id="cancel">5. Changes and cancellations</h2>
                     <p>Plans change. Cancel or reschedule by calling or texting
                         <a href="tel:+12081112222">(208) 111-2222</a> — we just ask for as much notice as
-                        you can reasonably give. We don't take deposits and we don't charge a cancellation
-                        fee for residential jobs.</p>
+                        you can reasonably give. We don't charge a cancellation fee for residential jobs.
+                        If you paid a deposit under section 8 and cancel before we start, it comes back to
+                        you.</p>
                     <p>We may cancel or reschedule if conditions are unsafe, if the job turns out to be
                         outside what we do, or if the load includes material we're not permitted to take.</p>
 
@@ -228,7 +240,19 @@
                     <h2 id="payment">8. Payment</h2>
                     <p>For residential work, payment is due when the job is finished, unless we've agreed
                         otherwise in writing. We accept the payment methods listed at the time of booking.</p>
-                    <p>We don't require deposits for standard residential jobs. Unpaid balances may accrue
+
+                    <h3>Deposits</h3>
+                    <p>On larger jobs — currently those priced at <strong>$400 or more</strong> — we take a
+                        <strong>25% deposit</strong> to hold the slot. Three things about that:</p>
+                    <ul>
+                        <li>It is taken by a supervisor <strong>after</strong> they have seen the job and
+                            set the real price. Never before.</li>
+                        <li>It is never collected through this website. There is no card field anywhere on
+                            lcjr.com, and the estimate tool takes no payment of any kind.</li>
+                        <li>It comes off the final bill, and it is refunded if you cancel before we start
+                            work.</li>
+                    </ul>
+                    <p>Smaller residential jobs don't require a deposit. Unpaid balances may accrue
                         reasonable late charges to the extent the law allows, and you'd be responsible for
                         reasonable collection costs.</p>
 

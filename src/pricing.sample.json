@@ -1,0 +1,43 @@
+{
+  "_comment": [
+    "LOCAL DEVELOPMENT ONLY. src/quote.js loads this file only when the page is",
+    "served from localhost AND the live GET /api/pricing call has failed.",
+    "",
+    "It exists so the quote flow can be built and tested before the ops",
+    "endpoint ships. It is NOT a price list. On a live host, a failed pricing",
+    "fetch hides the calculator entirely rather than falling back to these",
+    "numbers, because a baked-in price list drifts from the database silently.",
+    "",
+    "Values mirror the load_fractions, surcharge_items and service_area_zips",
+    "tables as documented in the integration spec. Money is integer cents."
+  ],
+  "loadFractions": [
+    { "key": "eighth",        "label": "1/8 load",   "fraction": 0.125, "priceCents": 8900,  "estMinutes": 30 },
+    { "key": "quarter",       "label": "1/4 load",   "fraction": 0.25,  "priceCents": 14900, "estMinutes": 45 },
+    { "key": "half",          "label": "1/2 load",   "fraction": 0.5,   "priceCents": 24900, "estMinutes": 75 },
+    { "key": "three_quarter", "label": "3/4 load",   "fraction": 0.75,  "priceCents": 33900, "estMinutes": 100 },
+    { "key": "full",          "label": "Full load",  "fraction": 1.0,   "priceCents": 42900, "estMinutes": 135 }
+  ],
+  "surcharges": [
+    { "key": "mattress", "label": "Mattress / box spring",  "priceCents": 3500 },
+    { "key": "tire",     "label": "Tire",                   "priceCents": 1500 },
+    { "key": "freon",    "label": "Appliance with freon",   "priceCents": 4500 },
+    { "key": "paint",    "label": "Paint / solvents",       "priceCents": 2000 },
+    { "key": "ewaste",   "label": "E-waste (TV, monitor)",  "priceCents": 2500 },
+    { "key": "piano",    "label": "Piano / organ",          "priceCents": 15000 },
+    { "key": "hot_tub",  "label": "Hot tub",                "priceCents": 25000 },
+    { "key": "concrete", "label": "Concrete / dirt",        "priceCents": 6000 }
+  ],
+  "serviceZips": [
+    { "zip": "83501", "city": "Lewiston",  "state": "ID" },
+    { "zip": "83524", "city": "Culdesac",  "state": "ID" },
+    { "zip": "83535", "city": "Juliaetta", "state": "ID" },
+    { "zip": "83536", "city": "Lenore",    "state": "ID" },
+    { "zip": "83537", "city": "Kendrick",  "state": "ID" },
+    { "zip": "83540", "city": "Lapwai",    "state": "ID" },
+    { "zip": "83545", "city": "Peck",      "state": "ID" },
+    { "zip": "83832", "city": "Genesee",   "state": "ID" },
+    { "zip": "99402", "city": "Asotin",    "state": "WA" },
+    { "zip": "99403", "city": "Clarkston", "state": "WA" }
+  ]
+}
