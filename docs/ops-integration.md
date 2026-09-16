@@ -148,9 +148,8 @@ Practical consequences:
 1. **Which domain is the marketing site?** The spec says `lcjunk.com`; every
    page here currently says `lcjr.com` (OG tags, the privacy policy, the terms).
    The answer sets the CORS origin and needs fixing across the site either way.
-2. **The public phone number is still the `(208) 111-2222` placeholder**, in 29
-   places including the calculator's fallback panel. Nothing here works without
-   a real one.
+2. ~~The public phone number is a placeholder.~~ **Done** — the site now uses
+   `(208) 503-6307` / `tel:+12085036307` throughout.
 3. **Callback window.** The ops app stamps `claim_deadline_at` at two business
    hours. The site currently promises no number — it says a supervisor "calls
    you back". Say the word and it can state the two-hour SLA, but only if
