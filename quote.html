@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Get a free, no-obligation junk removal quote from LCJR. Tell us what you've got and we'll come back with one flat price. Serving Lewiston, Clarkston and Asotin.">
+    <meta name="robots" content="index">
+    <meta name="theme-color" content="#167038">
+    <title>Get a Quote | LC Junk Removal</title>
+    <meta property="og:title" content="Get a Quote — LC Junk Removal">
+    <meta property="og:description" content="Free, no-obligation quotes. One flat price before we start.">
+    <meta property="og:image" content="https://lcjr.com/images/lcjr-og.png">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/src/style.css?v=3">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="/" aria-label="LC Junk Removal home">
+                <img src="/images/lcjr-block-logo.png" alt="LC Junk Removal">
+                <span class="brand-text">
+                    <span class="brand-name">LC Junk Removal</span>
+                    <span class="brand-tag">Lewis-Clark Valley</span>
+                </span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+                <span></span>
+                <span class="sr-only">Menu</span>
+            </button>
+
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+                <a href="/#services">Services</a>
+                <a href="/#areas">Areas</a>
+                <a href="/b2b.html">B2B</a>
+                <a href="/team.html">Team</a>
+                <a href="/aboutus.html">About Us</a>
+                <a class="btn btn--primary btn--sm" href="/quote.html" aria-current="page">Get a Quote</a>
+            </nav>
+
+            <div class="header-actions">
+                <a class="header-phone" href="tel:+12081112222">(208) 111-2222</a>
+                <a class="btn btn--primary btn--sm" href="/quote.html" aria-current="page">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <section class="page-head">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="/">Home</a> <span aria-hidden="true">/</span> <span>Get a Quote</span>
+                </nav>
+                <span class="eyebrow">Free &amp; No Obligation</span>
+                <h1>Get A <span class="accent">Quote</span></h1>
+                <p class="lead">Tell us what you've got. We'll come back with one flat price — no
+                    deposit, no pressure, no surprise fees at the end.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container quote-layout">
+
+                <div class="form-card reveal">
+                    <!--
+                        FORM SETUP — this form needs an endpoint before it can deliver mail.
+                        Easiest option: create a free form at formspree.io and replace
+                        YOUR_FORM_ID below with the id it gives you. Until then, the call and
+                        text links on this page are the working contact paths.
+                    -->
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="name">Your name</label>
+                                <input id="name" name="name" type="text" autocomplete="name" required>
+                            </div>
+                            <div class="field">
+                                <label for="phone">Phone</label>
+                                <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Email <span style="text-transform: none; font-weight: 500;">(optional)</span></label>
+                            <input id="email" name="email" type="email" autocomplete="email">
+                        </div>
+
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="type">Job type</label>
+                                <select id="type" name="type">
+                                    <option value="residential">Residential — one-off pickup</option>
+                                    <option value="estate">Estate / full cleanout</option>
+                                    <option value="construction">Construction debris</option>
+                                    <option value="yard">Yard &amp; green waste</option>
+                                    <option value="business">Business / commercial account</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="city">City</label>
+                                <select id="city" name="city">
+                                    <option value="lewiston">Lewiston, ID</option>
+                                    <option value="clarkston">Clarkston, WA</option>
+                                    <option value="asotin">Asotin, WA</option>
+                                    <option value="other">Somewhere else</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="details">What needs hauling?</label>
+                            <textarea id="details" name="details"
+                                placeholder="A couch, two mattresses and about ten bags of garage stuff. Everything's in the driveway."
+                                required></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label for="timing">When do you need it gone?</label>
+                            <select id="timing" name="timing">
+                                <option value="asap">As soon as possible</option>
+                                <option value="week">Within the week</option>
+                                <option value="flexible">I'm flexible</option>
+                                <option value="recurring">Recurring / ongoing</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn--primary" type="submit" style="width: 100%;">Send My Request</button>
+
+                        <p class="form-note">We'll get back to you the same day during business hours.
+                            Prefer to talk it through? Call or text
+                            <a class="accent" href="tel:+12081112222"><strong>(208) 111-2222</strong></a>.</p>
+                    </form>
+                </div>
+
+                <aside>
+                    <div class="aside-card reveal">
+                        <h3>Faster: Send a Photo</h3>
+                        <p>The quickest way to a price is a picture. Text a photo of the pile to
+                            <strong>(208) 111-2222</strong> and we'll usually quote it within the hour.</p>
+                        <div class="btn-row" style="margin-top: 20px;">
+                            <a class="btn btn--primary" href="sms:+12081112222">Text a Photo</a>
+                        </div>
+                    </div>
+
+                    <div class="aside-card reveal">
+                        <h3>What Happens Next</h3>
+                        <ol class="step-list" style="margin-top: 16px;">
+                            <li class="step">
+                                <span class="step-num" aria-hidden="true">1</span>
+                                <div>
+                                    <h4>We Read It</h4>
+                                    <p>Same day during business hours.</p>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <span class="step-num" aria-hidden="true">2</span>
+                                <div>
+                                    <h4>You Get a Price</h4>
+                                    <p>One flat number, nothing added later.</p>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <span class="step-num" aria-hidden="true">3</span>
+                                <div>
+                                    <h4>We Pick a Time</h4>
+                                    <p>Most valley jobs happen within 24 hours.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="aside-card reveal">
+                        <h3>Running a Business?</h3>
+                        <p>Recurring routes, job-site cleanups and invoiced billing are handled a little
+                            differently.</p>
+                        <div class="btn-row" style="margin-top: 20px;">
+                            <a class="btn btn--ghost" href="/b2b.html">See B2B Services</a>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/"><img src="/images/lcjr-block-logo.png" alt="LC Junk Removal"></a>
+                    <p>Locally owned junk removal serving the Lewis-Clark Valley and the towns around it.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/lewisclarkjunkremoval/" target="_blank" rel="noopener"
+                            aria-label="LCJR on Instagram">
+                            <img src="/images/instagram-icon.png" alt="">
+                        </a>
+                        <a href="mailto:hello@lcjr.com" aria-label="Email LCJR">
+                            <img src="/images/email-icon.png" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <nav class="footer-col" aria-label="Services">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/#services">Furniture &amp; Appliances</a></li>
+                        <li><a href="/#services">Construction Debris</a></li>
+                        <li><a href="/#services">Estate Cleanouts</a></li>
+                        <li><a href="/#services">Yard &amp; Green Waste</a></li>
+                        <li><a href="/b2b.html">Commercial / B2B</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="footer-col" aria-label="Company">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/aboutus.html">About Us</a></li>
+                        <li><a href="/team.html">The Team</a></li>
+                        <li><a href="/b2b.html">For Businesses</a></li>
+                        <li><a href="/quote.html">Get a Quote</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+12081112222">(208) 111-2222</a></li>
+                        <li>Mon–Fri, after 3PM</li>
+                        <li>Lewiston, Clarkston &amp; Asotin</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 LC Junk Removal. All rights reserved.</p>
+                <p>Built with care by HEWZAC</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/src/main.js?v=3" defer></script>
+    <script>
+        // Preselect "business" when arriving from the B2B page.
+        (function () {
+            var type = new URLSearchParams(window.location.search).get("type");
+            var select = document.getElementById("type");
+            if (!type || !select) return;
+            var match = Array.prototype.find.call(select.options, function (o) { return o.value === type; });
+            if (match) select.value = type;
+        })();
+    </script>
+</body>
+
+</html>
