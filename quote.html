@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Get a free, no-obligation junk removal quote from LCJR. Tell us what you've got and we'll come back with one flat price. Serving Lewiston, Clarkston and Asotin.">
+    <meta name="robots" content="index">
+    <meta name="theme-color" content="#0c100d">
+    <title>Get a Quote | Lewis-Clark Junk Removal</title>
+    <meta property="og:title" content="Get a Quote — Lewis-Clark Junk Removal">
+    <meta property="og:description" content="Free, no-obligation quotes. One flat price before we start.">
+    <meta property="og:image" content="https://lcjr.com/images/lcjr-og.png">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/src/style.css?v=7">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="/" aria-label="Lewis-Clark Junk Removal home">
+                <img src="/images/lcjr-emblem-light.png" alt="Lewis-Clark Junk Removal">
+                <span class="brand-text">
+                    <span class="brand-name">Lewis-Clark Junk Removal</span>
+                    <span class="brand-tag">Lewiston &middot; Clarkston &middot; Asotin</span>
+                </span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+                <span></span>
+                <span class="sr-only">Menu</span>
+            </button>
+
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+                <a href="/#services">Services</a>
+                <a href="/#areas">Areas</a>
+                <a href="/b2b.html">B2B</a>
+                <a href="/team.html">Team</a>
+                <a href="/aboutus.html">About Us</a>
+                <a class="btn btn--primary btn--sm" href="/quote.html" aria-current="page">Get a Quote</a>
+            </nav>
+
+            <div class="header-actions">
+                <a class="header-phone" href="tel:+12085036307">(208) 503-6307</a>
+                <a class="btn btn--primary btn--sm" href="/quote.html" aria-current="page">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="/">Home</a> <span aria-hidden="true">/</span> <span>Get a Quote</span>
+                </nav>
+                <span class="eyebrow">Free &amp; No Obligation</span>
+                <h1>Get An <span class="accent">Estimate</span></h1>
+                <p class="lead">Three quick steps and you will see a ballpark number. A supervisor confirms
+                    the real price after looking at the job &mdash; no deposit, no card, nothing owed until
+                    you have spoken to a person.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container quote-layout">
+
+                <!--
+                    The whole flow is rendered by src/quote.js against the ops app at
+                    app.lcjunk.com. If GET /api/pricing fails the script replaces this
+                    with a call-and-text panel rather than showing prices it cannot
+                    stand behind.
+                -->
+                <div id="quote-app" class="form-card" data-api-base="https://app.lcjunk.com">
+                    <noscript>
+                        <h2>The estimate tool needs JavaScript</h2>
+                        <p class="lead">It is switched off in this browser, so the calculator will not run.
+                            Call or text <a href="tel:+12085036307"><strong>(208) 503-6307</strong></a> and we
+                            will price the job with you directly &mdash; a photo of the pile does it fastest.</p>
+                    </noscript>
+                </div>
+
+                <aside>
+                    <div class="aside-card aside-card--accent reveal">
+                        <h3>Faster: Send a Photo</h3>
+                        <p>The quickest way to a price is a picture. Text a photo of the pile to
+                            <strong>(208) 503-6307</strong> and we will come back to you directly.</p>
+                        <div class="btn-row" style="margin-top: 20px;">
+                            <a class="btn btn--primary" href="sms:+12085036307">Text a Photo</a>
+                        </div>
+                    </div>
+
+                    <div class="aside-card reveal">
+                        <h3>What Happens Next</h3>
+                        <ol class="step-list" style="margin-top: 16px;">
+                            <li class="step">
+                                <span class="step-num" aria-hidden="true">1</span>
+                                <div>
+                                    <h4>A Supervisor Reviews It</h4>
+                                    <p>Your request goes straight into our job queue.</p>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <span class="step-num" aria-hidden="true">2</span>
+                                <div>
+                                    <h4>They Call You Back</h4>
+                                    <p>To confirm what is there and set the real price.</p>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <span class="step-num" aria-hidden="true">3</span>
+                                <div>
+                                    <h4>You Pick a Time</h4>
+                                    <p>Scheduling happens on that call, not before.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="aside-card reveal">
+                        <h3>Why It Is Only An Estimate</h3>
+                        <p>Pricing goes by how much room your load takes up in the truck. The calculator
+                            works from your description; the supervisor works from the actual pile. Most of
+                            the time they match. When they do not, you hear the real number before anyone
+                            lifts anything.</p>
+                    </div>
+
+                    <div class="aside-card reveal">
+                        <h3>Running a Business?</h3>
+                        <p>Recurring routes, job-site cleanups and invoiced billing are handled a little
+                            differently.</p>
+                        <div class="btn-row" style="margin-top: 20px;">
+                            <a class="btn btn--ghost" href="/b2b.html">See B2B Services</a>
+                        </div>
+                    </div>
+
+                    <div class="aside-card reveal">
+                        <h3>Your Information</h3>
+                        <p>What you enter goes to our own dispatch system so a supervisor can price and
+                            schedule the job. We do not sell it. See the
+                            <a class="accent" href="/privacy.html"><strong>Privacy Policy</strong></a> and
+                            <a class="accent" href="/terms.html"><strong>Terms of Service</strong></a>.</p>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/"><img src="/images/lcjr-emblem-light.png" alt="Lewis-Clark Junk Removal"></a>
+                    <p>Locally owned junk removal serving the Lewis-Clark Valley and the towns around it.</p>
+                    <p class="footer-owner">
+                        <span class="owner-dot" aria-hidden="true">HC</span>
+                        <span>A <strong>Hewcore Corp.</strong> company</span>
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/lewisclarkjunkremoval/" target="_blank" rel="noopener"
+                            aria-label="Lewis-Clark Junk Removal on Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Z"/>
+                                <path d="M16 11.4a4 4 0 1 1-3.4-3.4 4 4 0 0 1 3.4 3.4Z"/>
+                                <path d="M17.5 6.6h.01"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@lcjr.com" aria-label="Email Lewis-Clark Junk Removal">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3 6.5h18v11H3z"/>
+                                <path d="m3 7 9 6 9-6"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <nav class="footer-col" aria-label="Services">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/#services">Furniture &amp; Appliances</a></li>
+                        <li><a href="/#services">Construction Debris</a></li>
+                        <li><a href="/#services">Estate Cleanouts</a></li>
+                        <li><a href="/#services">Yard &amp; Green Waste</a></li>
+                        <li><a href="/b2b.html">Commercial / B2B</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="footer-col" aria-label="Company">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/aboutus.html">About Us</a></li>
+                        <li><a href="/team.html">The Team</a></li>
+                        <li><a href="/b2b.html">For Businesses</a></li>
+                        <li><a href="/quote.html">Get a Quote</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+12085036307">(208) 503-6307</a></li>
+                        <li>Mon&ndash;Fri, after 3PM</li>
+                        <li>Lewiston, Clarkston &amp; Asotin</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lewis-Clark Junk Removal. All rights reserved.</p>
+                <nav class="footer-legal" aria-label="Legal">
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/src/main.js?v=7" defer></script>
+    <script src="/src/quote.js?v=7" defer></script>
+</body>
+
+</html>

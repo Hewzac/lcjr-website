@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "lcjr-site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:/Users/hwzac/AppData/Local/Temp/claude/C--Users-hwzac-OneDrive-Documents-git-lcjr-website/14af7775-aa42-4978-877a-353698e9327c/scratchpad/serve.js",
+        "C:/Users/hwzac/OneDrive/Documents/git/lcjr-website",
+        "5199"
+      ],
+      "port": 5199
+    }
+  ]
+}
