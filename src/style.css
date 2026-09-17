@@ -518,15 +518,18 @@ main { flex: 1 0 auto; }
   gap: 8px;
   font-size: .92rem;
 }
+/* Positioned bullet rather than a grid column — see the note on .legal ul li.
+   These items are plain text today, but the grid version breaks the moment
+   anyone adds a <strong> to one. */
 .card-list li {
-  display: grid;
-  grid-template-columns: 18px 1fr;
-  gap: 10px;
-  align-items: start;
+  position: relative;
+  padding-left: 28px;
 }
 .card-list li::before {
   content: "";
-  margin-top: 8px;
+  position: absolute;
+  left: 0;
+  top: .5em;
   width: 8px;
   height: 8px;
   border-radius: 2px;
@@ -719,35 +722,31 @@ main { flex: 1 0 auto; }
 
 /* ------------------------------------------------------- Parent company -- */
 
+/* Deliberately understated — a footnote about who owns the business, not a
+   second brand competing with LCJR's own. One line, no card, no heading. */
 .owner {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(22px, 4vw, 40px);
+  display: flex;
   align-items: center;
-  padding: clamp(26px, 4vw, 40px);
-  background:
-    radial-gradient(620px 300px at 100% 0%, rgba(46, 190, 109, .10), transparent 66%),
-    var(--surface);
+  gap: 16px;
+  padding: 18px 20px;
   border: 1px solid var(--line);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  max-width: 640px;
 }
 .owner-mark {
-  display: grid;
-  place-items: center;
-  width: clamp(76px, 10vw, 96px);
-  height: clamp(76px, 10vw, 96px);
-  border-radius: var(--r-md);
-  border: 1px solid var(--green-line);
-  background: var(--green-tint);
-  font-family: var(--display);
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  letter-spacing: .04em;
+  flex-shrink: 0;
+  width: 34px;
   color: var(--green-400);
-  line-height: 1;
 }
-.owner h3 { margin-bottom: 10px; }
-.owner p { font-size: .96rem; margin-bottom: 0; }
-.owner p + p { margin-top: 12px; }
+.owner-mark svg { width: 100%; height: auto; display: block; }
+.owner p {
+  font-size: .9rem;
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+}
+.owner p strong { color: var(--ink); }
 
 /* Footer badge for the same relationship. */
 .footer-owner {
@@ -764,18 +763,12 @@ main { flex: 1 0 auto; }
   color: var(--muted);
 }
 .footer-owner .owner-dot {
-  width: 22px;
-  height: 22px;
-  display: grid;
-  place-items: center;
-  border-radius: 5px;
-  background: var(--green-tint);
-  border: 1px solid var(--green-line);
-  font-family: var(--display);
-  font-size: .82rem;
-  line-height: 1;
+  display: block;
+  width: 26px;
+  flex-shrink: 0;
   color: var(--green-400);
 }
+.footer-owner .owner-dot svg { width: 100%; height: auto; display: block; }
 .footer-owner strong { color: var(--body); font-weight: 700; }
 
 /* ----------------------------------------------------------------- B2B -- */
@@ -1499,15 +1492,21 @@ a.value:hover { color: var(--green-400); }
 }
 .legal p { margin-bottom: 14px; max-width: none; }
 .legal ul { margin: 0 0 16px; display: grid; gap: 9px; }
+
+/* Bullet is positioned, not a grid column.
+   As a grid, every child of the <li> becomes a grid item — so `<strong>Label</strong>
+   followed by text` put the <strong> in the text column and auto-placed the
+   bare text node into the next row's 18px bullet column, wrapping it one word
+   per line. An ordinary block keeps the inline content in one flow. */
 .legal ul li {
-  display: grid;
-  grid-template-columns: 18px 1fr;
-  gap: 10px;
-  align-items: start;
+  position: relative;
+  padding-left: 28px;
 }
 .legal ul li::before {
   content: "";
-  margin-top: 10px;
+  position: absolute;
+  left: 0;
+  top: .62em;
   width: 7px;
   height: 7px;
   border-radius: 2px;
@@ -1609,8 +1608,10 @@ a.value:hover { color: var(--green-400); }
   :root { --header-h: 68px; }
 
   .nav-toggle { display: flex; }
-  .header-phone { display: none; }
-  .header-actions > .btn { display: none; }
+  /* The whole group, not just its children. An empty flex item still takes
+     part in `space-between`, which pinned a zero-width box to the right edge
+     and left the menu button stranded in the middle of the header. */
+  .header-actions { display: none; }
 
   .nav {
     position: fixed;
@@ -1679,7 +1680,7 @@ a.value:hover { color: var(--green-400); }
     border-right: 0;
     border-bottom: 1px solid var(--line);
   }
-  .owner { grid-template-columns: 1fr; gap: 20px; }
+  .owner { gap: 14px; padding: 16px; }
 
   .load-group { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .surcharge-row { grid-template-columns: minmax(0, 1fr) auto; row-gap: 8px; }
