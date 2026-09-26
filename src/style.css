@@ -473,6 +473,16 @@ main { flex: 1 0 auto; }
   line-height: 1;
   letter-spacing: .02em;
 }
+/* Live figure replaced a shipped one — a brief flash so the change is seen
+   rather than happening behind the reader. */
+.stat-value.is-fresh {
+  animation: stat-fresh .9s ease-out;
+}
+@keyframes stat-fresh {
+  from { color: var(--ink); }
+  to   { color: var(--green-400); }
+}
+
 .stats-note {
   margin: 18px auto 0;
   max-width: 60ch;
