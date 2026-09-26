@@ -7,3 +7,6 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Local check scripts (not part of the site)
+.checks/

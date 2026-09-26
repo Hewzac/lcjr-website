@@ -149,8 +149,10 @@ strong { color: var(--ink); font-weight: 600; }
 
 main { flex: 1 0 auto; }
 
-.section { padding: clamp(64px, 9vw, 112px) 0; }
-.section--tight { padding: clamp(48px, 6vw, 76px) 0; }
+/* Tightened deliberately: the page reads as one flow rather than a stack of
+   widely separated slabs, and mobile loses a good deal of scrolling. */
+.section { padding: clamp(44px, 5.5vw, 72px) 0; }
+.section--tight { padding: clamp(32px, 4vw, 52px) 0; }
 .section--alt { background: var(--surface); }
 
 .section-head {
@@ -158,7 +160,7 @@ main { flex: 1 0 auto; }
   flex-direction: column;
   gap: 14px;
   max-width: 640px;
-  margin-bottom: clamp(36px, 5vw, 56px);
+  margin-bottom: clamp(26px, 3.5vw, 40px);
 }
 .section-head.is-center {
   align-items: center;
@@ -452,7 +454,7 @@ main { flex: 1 0 auto; }
 .stats { background: var(--bg); }
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
@@ -471,6 +473,14 @@ main { flex: 1 0 auto; }
   line-height: 1;
   letter-spacing: .02em;
 }
+.stats-note {
+  margin: 18px auto 0;
+  max-width: 60ch;
+  text-align: center;
+  font-size: .88rem;
+  color: var(--muted);
+}
+
 .stat-label {
   margin-top: 8px;
   font-size: .78rem;
@@ -1649,7 +1659,10 @@ a.value:hover { color: var(--green-400); }
 
   .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .split, .cta-grid, .quote-layout { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Three stats stay three across — two columns would orphan the third. */
+  .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stat { padding: 22px 10px; }
+  .stat-label { font-size: .68rem; letter-spacing: .08em; }
   .b2b-points { grid-template-columns: 1fr; gap: 22px; }
 
   .member--lead { grid-template-columns: 170px minmax(0, 1fr); }
