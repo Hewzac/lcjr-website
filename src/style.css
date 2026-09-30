@@ -1267,6 +1267,35 @@ a.value:hover { color: var(--green-400); }
   color: var(--ink);
   cursor: pointer;
 }
+/* Honeypot. Off-screen rather than display:none — a bot that skips hidden
+   inputs will still fill anything focusable, and this catches those. Never
+   shown, never tabbable, never read aloud. */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* The age gate. Given its own box so it reads as a condition of sending,
+   not another optional preference alongside "this is for a business". */
+.check--gate {
+  align-items: flex-start;
+  gap: 13px;
+  padding: 16px 18px;
+  margin: 4px 0 18px;
+  border: 1px solid var(--green-line);
+  border-radius: var(--r-md);
+  background: var(--green-tint);
+  font-weight: 500;
+  color: var(--body);
+  line-height: 1.5;
+}
+.check--gate input { margin-top: 2px; flex-shrink: 0; }
+.check--gate a { color: var(--green-400); font-weight: 600; }
+.check--gate a:hover { text-decoration: underline; }
+
 .check input {
   width: 19px;
   height: 19px;

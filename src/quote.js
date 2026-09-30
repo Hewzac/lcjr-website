@@ -7,17 +7,17 @@
      GET  /api/pricing   load fractions, surcharge items, service ZIPs
      POST /api/requests  a job request
 
-   NEITHER ENDPOINT EXISTS YET. Until they do, this file is written against
-   the agreed contract and degrades honestly: if pricing cannot be fetched the
-   calculator is hidden entirely and the page falls back to call-and-text,
-   rather than showing prices that might disagree with what a supervisor sees.
+   Both are live. If pricing cannot be fetched the calculator is hidden
+   entirely and the page falls back to call-and-text, rather than showing
+   prices that might disagree with what a supervisor sees.
 
    Rules this file enforces, from the spec:
      - Money is integer cents everywhere. Formatting happens at display only.
      - Prices and service ZIPs are never hard-coded for production use.
      - The number shown is an ESTIMATE, never a quote.
      - A partial lead (name + phone + ZIP) is submitted with incompleteIntake
-       rather than discarded.
+       rather than discarded — but only once the visitor has confirmed they
+       are 18 or over. No attestation, nothing leaves the browser.
    ========================================================================== */
 
 (function () {
@@ -68,6 +68,13 @@
     accessNotes: "",
     preferredTimeframe: "",
     isCommercial: false,
+    /**
+     * The visitor's own confirmation that they are 18 or over. Nothing is
+     * submitted without it — not a finished request, and not a partial lead.
+     */
+    isAdult: false,
+    /** Honeypot. A real person never fills this in; it is off-screen. */
+    company: "",
   };
 
   /* ------------------------------------------------------------- Money -- */
@@ -306,6 +313,14 @@
         '<div class="field"><label for="o-phone">Phone</label>' +
         '<input id="o-phone" name="phone" type="tel" autocomplete="tel"></div>' +
       "</div>" +
+      '<div class="hp" aria-hidden="true">' +
+        '<label for="o-company">Company</label>' +
+        '<input id="o-company" type="text" tabindex="-1" autocomplete="off">' +
+      "</div>" +
+      '<label class="check check--gate"><input id="o-adult" type="checkbox" required>' +
+        '<span>I am 18 or older, and I agree to the ' +
+        '<a href="/terms.html" target="_blank" rel="noopener">Terms of Service</a> and ' +
+        '<a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>' +
       '<p id="outside-error" class="field-error" role="alert"></p>';
     var actions = el("div", { class: "btn-row" });
     actions.appendChild(el("button", { class: "btn btn--primary", type: "submit", text: "Ask Us Anyway" }));
@@ -324,9 +339,16 @@
         err.textContent = "We need a name and a phone number to call you back.";
         return;
       }
+      if (!form.querySelector("#o-adult").checked) {
+        err.textContent = "Please confirm you are 18 or older before sending this.";
+        form.querySelector("#o-adult").focus();
+        return;
+      }
       err.textContent = "";
       state.customerName = name;
       state.phone = phone;
+      state.isAdult = true;
+      state.company = form.querySelector("#o-company").value;
       send({ incompleteIntake: true, outOfArea: true }, form.querySelector("button"));
     });
 
@@ -518,6 +540,16 @@
       "  </select></div>",
       '<label class="check"><input id="d-commercial" type="checkbox">',
       '  <span>This is for a business</span></label>',
+      // Off-screen rather than display:none — some bots skip hidden inputs
+      // but fill anything focusable. A person never sees or tabs to it.
+      '<div class="hp" aria-hidden="true">',
+      '  <label for="d-company">Company</label>',
+      '  <input id="d-company" type="text" tabindex="-1" autocomplete="off">',
+      "</div>",
+      '<label class="check check--gate"><input id="d-adult" type="checkbox" required>',
+      '  <span>I am 18 or older, and I agree to the',
+      '    <a href="/terms.html" target="_blank" rel="noopener">Terms of Service</a> and',
+      '    <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>',
       '<p id="details-error" class="field-error" role="alert"></p>',
     ].join("\n");
 
@@ -534,6 +566,8 @@
     form.querySelector("#d-access").value = state.accessNotes;
     form.querySelector("#d-timeframe").value = state.preferredTimeframe;
     form.querySelector("#d-commercial").checked = state.isCommercial;
+    form.querySelector("#d-adult").checked = state.isAdult;
+    form.querySelector("#d-company").value = state.company;
 
     form.addEventListener("input", captureDetails);
     form.addEventListener("change", captureDetails);
@@ -551,6 +585,8 @@
       state.accessNotes = form.querySelector("#d-access").value.trim();
       state.preferredTimeframe = form.querySelector("#d-timeframe").value;
       state.isCommercial = form.querySelector("#d-commercial").checked;
+      state.isAdult = form.querySelector("#d-adult").checked;
+      state.company = form.querySelector("#d-company").value;
     }
 
     wrap.appendChild(form);
@@ -585,8 +621,13 @@
       captureDetails();
       var err = form.querySelector("#details-error");
       if (!state.customerName || !state.phone) {
-        err.textContent = "We need a name and a phone number — that's how we get back to you.";
+        err.textContent = "We need a name and a phone number — that’s how we get back to you.";
         form.querySelector(state.customerName ? "#d-phone" : "#d-name").focus();
+        return;
+      }
+      if (!state.isAdult) {
+        err.textContent = "Please confirm you are 18 or older before sending this.";
+        form.querySelector("#d-adult").focus();
         return;
       }
       err.textContent = "";
@@ -639,6 +680,8 @@
       preferredTimeframe: state.preferredTimeframe || null,
       accessNotes: state.accessNotes || null,
       isCommercial: !!state.isCommercial,
+      isAdult: !!state.isAdult,
+      company: state.company || "",
 
       incompleteIntake: !!opts.incompleteIntake,
       source: "website",
@@ -689,6 +732,9 @@
   function sendPartialIfUseful() {
     if (submitted || partialSent) return;
     if (!state.customerName || !state.phone || !state.zip) return;
+    // No attestation, no lead. Someone who typed a name and left without
+    // confirming their age is exactly the person we must not keep.
+    if (!state.isAdult) return;
     partialSent = true;
     try {
       fetch(API_BASE + "/api/requests", {

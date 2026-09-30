@@ -20,6 +20,13 @@
     app rather than a third-party form service. If the quote flow changes what
     it collects, section 2 has to change with it.
 
+    Section 10 states that the service is 18+, that the form will not send
+    without the confirmation, and that the server refuses a request lacking
+    it. All three are true today: quote.js gates both the submit button and
+    the abandoned-form capture, and POST /api/requests returns 403 without
+    isAdult. If any of those is ever relaxed, section 10 becomes a false
+    statement about a minor-safety control — the worst kind to get wrong.
+
     If you later add analytics, a tracking pixel, a chat widget, or cookies,
     section 4 stops being true and must be updated.
 -->
@@ -35,7 +42,7 @@
     <meta property="og:title" content="Privacy Policy — Lewis-Clark Junk Removal">
     <meta property="og:description" content="What we collect when you request a quote, who sees it, and how to have it deleted.">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="/src/style.css?v=12">
+    <link rel="stylesheet" href="/src/style.css?v=13">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -66,7 +73,7 @@
 
             <nav class="nav" id="primary-nav" aria-label="Primary">
                 <a href="/#services">Services</a>
-                <a href="/#areas">Areas</a>
+                <a href="/#areas">Areas</a>
                 <a href="/team.html">Team</a>
                 <a href="/aboutus.html">About Us</a>
                 <a class="btn btn--primary btn--sm" href="/quote.html">Get a Quote</a>
@@ -108,9 +115,11 @@
                             because we can't price or schedule hauling without them. It goes to our own
                             dispatch system, not a lead broker. We don't sell it, we don't advertise to you
                             with it, and this site runs no analytics, no tracking pixels, and no cookies.
-                            One thing to know: if you get partway through the estimate tool and leave, a
-                            name, phone number and ZIP still reach us so we can follow up. Ask us to delete
-                            your information and we will.</p>
+                            The tool is for adults: you confirm you are 18 or older before it will send,
+                            and nothing is stored without that. One thing to know: if you get partway
+                            through and leave <em>after</em> confirming your age, a name, phone number and
+                            ZIP still reach us so we can follow up. Ask us to delete your information and
+                            we will.</p>
                     </div>
 
                     <nav class="legal-toc" aria-label="Contents">
@@ -125,7 +134,7 @@
                             <li><a href="#keep">How long we keep it</a></li>
                             <li><a href="#rights">Your choices</a></li>
                             <li><a href="#security">How we protect it</a></li>
-                            <li><a href="#children">Children</a></li>
+                            <li><a href="#children">Age, and why we ask</a></li>
                             <li><a href="#changes">Changes to this policy</a></li>
                             <li><a href="#contact">Contact us</a></li>
                         </ol>
@@ -165,6 +174,9 @@
                         <li><strong>Timing</strong> — how soon you need it gone.</li>
                         <li><strong>Whether it's for a business</strong> — commercial jobs are billed
                             differently.</li>
+                        <li><strong>Your confirmation that you are 18 or older</strong>, and the date you
+                            gave it. The tool will not send without this — see
+                            <a href="#children">Age, and why we ask</a>.</li>
                     </ul>
                     <p>We do not ask for, and have no use for, your date of birth, Social Security number,
                         driver's license, or any financial account details. <strong>The estimate tool never
@@ -283,10 +295,25 @@
                         don't ask for financial or government ID information in the first place — the
                         safest data is the data nobody collected.</p>
 
-                    <h2 id="children">10. Children</h2>
-                    <p>Our services are for adults arranging work on a property. This site isn't directed
-                        at children under 13 and we don't knowingly collect their information. If you
-                        believe a child has sent us something, contact us and we'll delete it.</p>
+                    <h2 id="children">10. Age, and why we ask</h2>
+                    <p><strong>This service is for adults.</strong> Hiring us means agreeing to a price,
+                        letting a crew onto a property, and deciding that things get thrown away — none of
+                        which is a minor's decision to make. So the estimate tool asks you to confirm you
+                        are <strong>18 or older</strong> before it will send anything, and it will not
+                        submit without that box ticked.</p>
+                    <p>That confirmation is not decoration. The check runs on our server as well as in your
+                        browser, so a request without it is refused before any of your details are written
+                        down. We keep the date you confirmed it, alongside the job.</p>
+                    <p>We do not knowingly collect information from anyone under 18, and we have no interest
+                        in holding it. If you believe a minor has sent us their details — through the form,
+                        by text, or any other way — tell us and we will delete what we have. No explanation
+                        needed, and we won't ask you to prove anything.</p>
+                    <p>Separately, and because the law is specific about it: this site is not directed at
+                        children under 13, and we do not knowingly collect their personal information as
+                        defined by the Children's Online Privacy Protection Act.</p>
+                    <p>One thing this section is <em>not</em> about: some of our own crew are under 18.
+                        That is employment, governed by labour law and handled in our internal systems, and
+                        nothing about it appears on this website or in what we collect from customers.</p>
 
                     <h2 id="changes">11. Changes to this policy</h2>
                     <p>If we change how we handle information — adding analytics, say, or a new booking
@@ -345,7 +372,7 @@
                         <li><a href="/#services">Furniture &amp; Appliances</a></li>
                         <li><a href="/#services">Construction Debris</a></li>
                         <li><a href="/#services">Estate Cleanouts</a></li>
-                        <li><a href="/#services">Yard &amp; Green Waste</a></li>
+                        <li><a href="/#services">Yard &amp; Green Waste</a></li>
                     </ul>
                 </nav>
 
@@ -353,7 +380,7 @@
                     <h4>Company</h4>
                     <ul>
                         <li><a href="/aboutus.html">About Us</a></li>
-                        <li><a href="/team.html">The Team</a></li>
+                        <li><a href="/team.html">The Team</a></li>
                         <li><a href="/quote.html">Get a Quote</a></li>
                     </ul>
                 </nav>
@@ -378,7 +405,7 @@
         </div>
     </footer>
 
-    <script src="/src/main.js?v=12" defer></script>
+    <script src="/src/main.js?v=13" defer></script>
 </body>
 
 </html>
