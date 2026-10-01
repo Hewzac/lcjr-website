@@ -43,6 +43,20 @@
   var IS_LOCAL = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
   var PRICING_TIMEOUT_MS = 6000;
 
+  /*
+   * Cloudflare Turnstile. Empty site key = off, and the form behaves exactly
+   * as it did before, so this ships safely before the key exists.
+   *
+   * It is the one third-party script on the site, which is why it is opt-in
+   * rather than always-on: turning it on makes a statement in the privacy
+   * policy's "no third-party scripts" section untrue unless that section is
+   * updated too. It has been.
+   */
+  var TURNSTILE_KEY = (root.dataset.turnstileKey || "").trim();
+  var TURNSTILE_SRC =
+    "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+  var turnstileReady = null;
+
   /* ------------------------------------------------------------- State -- */
 
   var pricing = null;      // { loadFractions, surcharges, serviceZips }
@@ -75,7 +89,65 @@
     isAdult: false,
     /** Honeypot. A real person never fills this in; it is off-screen. */
     company: "",
+    /** Turnstile token, when Turnstile is switched on. */
+    turnstileToken: "",
   };
+
+  /* --------------------------------------------------------- Turnstile -- */
+
+  /** Loads the widget script once. Resolves immediately when it is off. */
+  function loadTurnstile() {
+    if (!TURNSTILE_KEY) return Promise.resolve(false);
+    if (turnstileReady) return turnstileReady;
+
+    turnstileReady = new Promise(function (resolve) {
+      if (window.turnstile) return resolve(true);
+      var s = document.createElement("script");
+      s.src = TURNSTILE_SRC;
+      s.async = true;
+      s.defer = true;
+      s.onload = function () { resolve(true); };
+      // A blocked or failed script must not strand the form. The server still
+      // has the age gate, the honeypot and the rate limit.
+      s.onerror = function () {
+        console.warn("[quote] Turnstile failed to load; continuing without it");
+        resolve(false);
+      };
+      document.head.appendChild(s);
+    });
+    return turnstileReady;
+  }
+
+  /** Id of the mounted widget, so a spent token can be replaced. */
+  var turnstileWidget = null;
+
+  /** Renders the widget into a container, storing the token on success. */
+  function mountTurnstile(container) {
+    if (!TURNSTILE_KEY) return;
+    loadTurnstile().then(function (ok) {
+      if (!ok || !window.turnstile || !container.isConnected) return;
+      state.turnstileToken = "";
+      turnstileWidget = window.turnstile.render(container, {
+        sitekey: TURNSTILE_KEY,
+        theme: "dark",
+        callback: function (token) { state.turnstileToken = token; },
+        "expired-callback": function () { state.turnstileToken = ""; },
+        "error-callback": function () { state.turnstileToken = ""; },
+      });
+    });
+  }
+
+  /*
+   * A Turnstile token is good for one verification. The server checks it
+   * before it validates the rest of the body, so a submission rejected for a
+   * bad phone number has already spent its token — without this, correcting
+   * the number and pressing send again would fail the bot check instead.
+   */
+  function resetTurnstile() {
+    state.turnstileToken = "";
+    if (!TURNSTILE_KEY || !window.turnstile || turnstileWidget === null) return;
+    try { window.turnstile.reset(turnstileWidget); } catch (e) { /* widget gone */ }
+  }
 
   /* ------------------------------------------------------------- Money -- */
 
@@ -317,6 +389,7 @@
         '<label for="o-company">Company</label>' +
         '<input id="o-company" type="text" tabindex="-1" autocomplete="off">' +
       "</div>" +
+      '<div class="turnstile-slot" id="o-turnstile"></div>' +
       '<label class="check check--gate"><input id="o-adult" type="checkbox" required>' +
         '<span>I am 18 or older, and I agree to the ' +
         '<a href="/terms.html" target="_blank" rel="noopener">Terms of Service</a> and ' +
@@ -329,6 +402,7 @@
     actions.appendChild(back);
     form.appendChild(actions);
     wrap.appendChild(form);
+    mountTurnstile(form.querySelector("#o-turnstile"));
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -546,6 +620,7 @@
       '  <label for="d-company">Company</label>',
       '  <input id="d-company" type="text" tabindex="-1" autocomplete="off">',
       "</div>",
+      '<div class="turnstile-slot" id="d-turnstile"></div>',
       '<label class="check check--gate"><input id="d-adult" type="checkbox" required>',
       '  <span>I am 18 or older, and I agree to the',
       '    <a href="/terms.html" target="_blank" rel="noopener">Terms of Service</a> and',
@@ -588,6 +663,8 @@
       state.isAdult = form.querySelector("#d-adult").checked;
       state.company = form.querySelector("#d-company").value;
     }
+
+    mountTurnstile(form.querySelector("#d-turnstile"));
 
     wrap.appendChild(form);
 
@@ -682,6 +759,7 @@
       isCommercial: !!state.isCommercial,
       isAdult: !!state.isAdult,
       company: state.company || "",
+      turnstileToken: state.turnstileToken || "",
 
       incompleteIntake: !!opts.incompleteIntake,
       source: "website",
@@ -716,6 +794,7 @@
   }
 
   function showSendError(body) {
+    resetTurnstile();
     var target = root.querySelector("#details-error") || root.querySelector("#outside-error");
     var message = "We couldn't send that just now. Call or text (208) 503-6307 and we'll take it down directly.";
     if (body && body.errors) {
@@ -735,6 +814,12 @@
     // No attestation, no lead. Someone who typed a name and left without
     // confirming their age is exactly the person we must not keep.
     if (!state.isAdult) return;
+
+    // Turnstile, when it is on, only mounts on the two forms that can collect
+    // a name and a phone number — so by the time this can fire, the widget has
+    // been on screen and a token normally exists. If it does not, the server
+    // refuses the partial. That is the right way round: a lead is worth a lot,
+    // but not enough to carve a hole a script could post through.
     partialSent = true;
     try {
       fetch(API_BASE + "/api/requests", {

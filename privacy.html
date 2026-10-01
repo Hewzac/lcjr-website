@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <!--
-    PRIVACY POLICY — READ BEFORE PUBLISHING
+    PRIVACY POLICY — NOT LEGAL ADVICE
 
     This was written to describe what this website and this business actually
     do, but it is not legal advice and it has not been reviewed by a lawyer.
     Have someone qualified look at it before you rely on it.
 
-    Fill in every [BRACKETED] placeholder below:
-      [BUSINESS LEGAL NAME]  — the registered entity that is legally on the
-                               hook. If LCJR is simply a DBA of Hewcore Corp.,
-                               put "Hewcore Corp." here. If it is a separate
-                               subsidiary, put that entity name instead.
-      [MAILING ADDRESS]      — a real address people can write to
-      [PRIVACY EMAIL]        — a mailbox someone actually reads
-      [EFFECTIVE DATE]       — the date you publish this
+    Entity details are filled in as of 30 Sep 2026:
+      Lewis-Clark Junk Removal LLC · 921 Bryden Ave, Lewiston, Idaho 83501
+      contact@hewcore.com
 
     Section 2 describes the estimate tool field-by-field, including the
     partial-submission behaviour, and section 5 says requests go to the ops
@@ -27,7 +22,11 @@
     isAdult. If any of those is ever relaxed, section 10 becomes a false
     statement about a minor-safety control — the worst kind to get wrong.
 
-    If you later add analytics, a tracking pixel, a chat widget, or cookies,
+    Section 4 names the only two third parties the browser talks to: Google
+    Fonts and Cloudflare Turnstile. Turnstile is opt-in — it loads only when
+    quote.html carries a data-turnstile-key — but section 4 describes it as
+    something that may appear, so it stays accurate either way. If you add
+    analytics, a tracking pixel, a chat widget, or any cookie of our own,
     section 4 stops being true and must be updated.
 -->
 <html lang="en">
@@ -42,7 +41,7 @@
     <meta property="og:title" content="Privacy Policy — Lewis-Clark Junk Removal">
     <meta property="og:description" content="What we collect when you request a quote, who sees it, and how to have it deleted.">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="/src/style.css?v=13">
+    <link rel="stylesheet" href="/src/style.css?v=14">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -105,7 +104,7 @@
                 <div class="legal">
 
                     <div class="legal-meta">
-                        <span><strong>Effective:</strong> [EFFECTIVE DATE]</span>
+                        <span><strong>Effective:</strong> September 30, 2026</span>
                         <span><strong>Applies to:</strong> lcjr.com and how we handle quote requests</span>
                     </div>
 
@@ -114,7 +113,9 @@
                         <p>We collect your name, phone number, ZIP code and a description of the job —
                             because we can't price or schedule hauling without them. It goes to our own
                             dispatch system, not a lead broker. We don't sell it, we don't advertise to you
-                            with it, and this site runs no analytics, no tracking pixels, and no cookies.
+                            with it, and this site runs no analytics and no tracking pixels. The estimate form
+                            may show a Cloudflare bot check, which is there to keep automated junk out
+                            of our queue, not to follow you around.
                             The tool is for adults: you confirm you are 18 or older before it will send,
                             and nothing is stored without that. One thing to know: if you get partway
                             through and leave <em>after</em> confirming your age, a name, phone number and
@@ -144,7 +145,7 @@
                     <p>Lewis-Clark Junk Removal ("LCJR", "we", "us") is a junk removal business serving the
                         Lewis-Clark Valley. The business is owned and operated by
                         <strong>Hewcore Corp.</strong>, and the entity responsible for this policy is
-                        <strong>[BUSINESS LEGAL NAME]</strong>.</p>
+                        <strong>Lewis-Clark Junk Removal LLC</strong>.</p>
                     <p>This policy covers the website at lcjr.com and the information you send us when you
                         ask for a quote or book a job.</p>
 
@@ -223,14 +224,28 @@
                         marketing list because you asked for a quote.</p>
 
                     <h2 id="tracking">4. Cookies, analytics and tracking</h2>
-                    <p>This website sets <strong>no cookies</strong>. It runs <strong>no analytics</strong>,
-                        no advertising pixels, no session recording, and no third-party chat widget. There
-                        is nothing here following you between sites, and nothing to opt out of.</p>
-                    <p>One thing worth naming plainly: our pages load fonts from Google Fonts. To deliver
-                        them, Google receives your IP address and basic request information, the same as
-                        any file your browser fetches from another server. Google's handling of that is
-                        governed by their own privacy policy, not ours. If that matters to you, the fonts
-                        can be self-hosted instead — tell us and we'll do it.</p>
+                    <p>We set <strong>no cookies of our own</strong>. We run <strong>no analytics</strong>, no
+                        advertising pixels, no session recording, and no third-party chat widget. Nothing here
+                        follows you between sites, and we build no profile of you.</p>
+                    <p>Two things do load from other companies, and both are worth naming plainly.</p>
+                    <ul>
+                        <li><strong>Google Fonts.</strong> Our pages load their typefaces. To deliver them,
+                            Google receives your IP address and basic request information, the same as any
+                            file your browser fetches from another server. If that matters to you, the fonts
+                            can be self-hosted instead — tell us and we will do it.</li>
+                        <li><strong>Cloudflare Turnstile.</strong> The estimate form may show a bot check from
+                            Cloudflare. It exists to stop automated junk reaching our dispatch queue, and it
+                            is not an advertising or analytics tool: Cloudflare states it does not use it to
+                            track people across sites. To do its job it receives your IP address, your browser
+                            and device characteristics, and signals about how the page was interacted with,
+                            and it may store a short-lived token or cookie in your browser to remember that
+                            the check passed. We never see those signals — only whether the check came back
+                            good. Turnstile is not on every page, and when it is switched off nothing is
+                            loaded from Cloudflare for it at all.</li>
+                    </ul>
+                    <p>Our site and our dispatch system are both hosted on Cloudflare, so Cloudflare also
+                        handles the ordinary request logs any web host keeps. Google and Cloudflare each
+                        handle what they receive under their own privacy policies, not ours.</p>
 
                     <h2 id="share">5. Who else sees it</h2>
                     <p>Your information stays with the people who need it to get your junk hauled:</p>
@@ -279,7 +294,7 @@
                         <li><strong>Stop contacting you.</strong> Reply STOP to a text, or tell us
                             directly.</li>
                     </ul>
-                    <p>Email <a href="mailto:[PRIVACY EMAIL]">[PRIVACY EMAIL]</a> or call
+                    <p>Email <a href="mailto:contact@hewcore.com">contact@hewcore.com</a> or call
                         <a href="tel:+12085036307">(208) 503-6307</a> and we'll take care of it. We may
                         need to confirm you're the person the information belongs to before we act. There's
                         no charge, and we won't treat you differently for asking.</p>
@@ -324,9 +339,9 @@
                     <h2 id="contact">12. Contact us</h2>
                     <p>Questions about any of this, or a request about your information:</p>
                     <ul>
-                        <li><strong>Email:</strong> <a href="mailto:[PRIVACY EMAIL]">[PRIVACY EMAIL]</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:contact@hewcore.com">contact@hewcore.com</a></li>
                         <li><strong>Phone or text:</strong> <a href="tel:+12085036307">(208) 503-6307</a></li>
-                        <li><strong>Mail:</strong> [BUSINESS LEGAL NAME], [MAILING ADDRESS]</li>
+                        <li><strong>Mail:</strong> Lewis-Clark Junk Removal LLC, 921 Bryden Ave, Lewiston, Idaho 83501</li>
                     </ul>
                     <p>See also our <a href="/terms.html">Terms of Service</a>.</p>
 
@@ -356,7 +371,7 @@
                                 <path d="M17.5 6.6h.01"/>
                             </svg>
                         </a>
-                        <a href="mailto:hello@lcjr.com" aria-label="Email Lewis-Clark Junk Removal">
+                        <a href="mailto:contact@hewcore.com" aria-label="Email Lewis-Clark Junk Removal">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M3 6.5h18v11H3z"/>
@@ -405,7 +420,7 @@
         </div>
     </footer>
 
-    <script src="/src/main.js?v=13" defer></script>
+    <script src="/src/main.js?v=14" defer></script>
 </body>
 
 </html>

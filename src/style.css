@@ -1296,6 +1296,16 @@ a.value:hover { color: var(--green-400); }
 .check--gate a { color: var(--green-400); font-weight: 600; }
 .check--gate a:hover { text-decoration: underline; }
 
+/*
+ * Cloudflare Turnstile widget slot.
+ *
+ * The div is always in the markup; the script only renders into it when a
+ * site key is present. `:empty` is what keeps an unconfigured form from
+ * carrying a stray 18px of margin around nothing.
+ */
+.turnstile-slot { margin: 2px 0 18px; min-height: 0; }
+.turnstile-slot:empty { display: none; }
+
 .check input {
   width: 19px;
   height: 19px;

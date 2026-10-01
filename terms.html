@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <!--
-    TERMS OF SERVICE — READ BEFORE PUBLISHING
+    TERMS OF SERVICE — NOT LEGAL ADVICE
 
-    These terms were written to match how this business actually operates as
-    described elsewhere on the site (flat volume-based quotes, 24-hour
-    turnaround, no hazardous material, invoiced commercial accounts). They are
-    not legal advice and have not been reviewed by a lawyer. The liability,
-    indemnity and dispute sections in particular are where a real attorney
-    earns their fee — get these looked at before relying on them.
+    Written to match how this business actually operates as described
+    elsewhere on the site: flat volume-based quotes, 24-hour turnaround, no
+    hazardous material, invoiced commercial accounts. It has NOT been reviewed
+    by a lawyer. The liability, indemnity and dispute sections are where a real
+    attorney earns their fee — get those looked at before relying on them.
 
-    Fill in every [BRACKETED] placeholder below:
-      [BUSINESS LEGAL NAME]  — the registered entity that is legally on the
-                               hook. If LCJR is simply a DBA of Hewcore Corp.,
-                               put "Hewcore Corp." here. If it is a separate
-                               subsidiary, put that entity name instead.
-      [MAILING ADDRESS]      — a real address
-      [CONTACT EMAIL]        — a mailbox someone actually reads
-      [EFFECTIVE DATE]       — the date you publish this
-      [STATE]                — governing law; Idaho if you're based in Lewiston
-      [COUNTY, STATE]        — venue for disputes
-      [N]                    — damage claim window, in days (7 is common)
-      [NET TERMS]            — commercial payment terms, e.g. "net 30"
+    Entity details are filled in as of 30 Sep 2026:
+      Lewis-Clark Junk Removal LLC · 921 Bryden Ave, Lewiston, Idaho 83501
+      contact@hewcore.com · Idaho law · Nez Perce County venue
 
-    Section 8 states the deposit rule as 25% on jobs at or over $400, taken by
-    a supervisor after the real price is set and never through the website.
-    That mirrors the ops app. If the threshold or percentage changes there,
-    change it here too or the two will disagree in front of a customer.
+    Things here that mirror something else, and break quietly if only one side
+    changes:
 
-    Section 1 states an 18+ requirement that is actually enforced in code, in
-    two places. Do not soften it without removing the enforcement, or the other
-    way round.
+      Section 1  — 18+ is enforced in code, in two places: quote.js gates both
+                   the submit button and the abandoned-form capture, and
+                   POST /api/requests returns 403 without isAdult. Do not
+                   soften the wording without removing the enforcement, or the
+                   reverse.
+      Section 3  — the estimate-vs-quote line the quote page depends on.
+      Section 8  — 25% deposit at or over $400, mirroring the ops app. Change
+                   one and the other disagrees in front of a customer.
+      Section 9  — invoices due in 15 days unless agreed otherwise in writing.
+                   Deliberately a default rather than a hard rule, so agreeing
+                   net 30 with a property manager does not contradict this page.
+      Section 10 — 7 days is framed as when we can still investigate, not as a
+                   bar on a real claim. That framing is intentional: a short
+                   contractual cut-off on all liability is both unfriendly and
+                   shakier to enforce.
 
-    Section 3 draws the estimate-vs-quote line that the quote page relies on.
     If you start charging cancellation fees or carry insurance you want to
     advertise, sections 5 and 10 need to change to match.
 -->
@@ -47,7 +46,7 @@
     <meta property="og:title" content="Terms of Service — Lewis-Clark Junk Removal">
     <meta property="og:description" content="How quotes work, what we can't haul, payment, and commercial accounts.">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="/src/style.css?v=13">
+    <link rel="stylesheet" href="/src/style.css?v=14">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -110,7 +109,7 @@
                 <div class="legal">
 
                     <div class="legal-meta">
-                        <span><strong>Effective:</strong> [EFFECTIVE DATE]</span>
+                        <span><strong>Effective:</strong> September 30, 2026</span>
                         <span><strong>Applies to:</strong> all hauling work and use of lcjr.com</span>
                     </div>
 
@@ -145,7 +144,7 @@
                     </nav>
 
                     <h2 id="agreement">1. Agreeing to these terms</h2>
-                    <p>These terms are an agreement between you and <strong>[BUSINESS LEGAL NAME]</strong>,
+                    <p>These terms are an agreement between you and <strong>Lewis-Clark Junk Removal LLC</strong>,
                         doing business as Lewis-Clark Junk Removal ("LCJR", "we", "us"), a
                         <strong>Hewcore Corp.</strong> company. They apply when you request a quote, book a
                         job, or use this website.</p>
@@ -272,8 +271,7 @@
                         differently:</p>
                     <ul>
                         <li>A per-load or per-visit rate agreed in writing before work starts</li>
-                        <li>Itemized invoices on <strong>[NET TERMS]</strong> rather than payment at the
-                            curb</li>
+                        <li>Itemized invoices rather than payment at the curb</li>
                         <li>A standing schedule you can change or pause as your workload changes</li>
                         <li>Per-visit records for your files</li>
                     </ul>
@@ -281,12 +279,31 @@
                         it with reasonable notice. Where a separate signed service agreement exists with a
                         business customer, that agreement controls if it conflicts with these terms.</p>
 
+                    <h3>When invoices are due</h3>
+                    <p>Unless we have agreed something different with you in writing, invoices are due
+                        <strong>within 15 days</strong> of the invoice date.</p>
+                    <p>If your accounts payable runs on net 30, say so when we set the account up and we
+                        will almost certainly agree to it — property managers and general contractors
+                        usually do, and we would rather match your process than make you fight ours. What
+                        we ask is that the terms are settled in writing before the first pickup, so neither
+                        of us is guessing at invoice time.</p>
+
                     <h2 id="damage">10. Damage and liability</h2>
                     <p>We take care in your space — that's the whole job. Still, moving heavy items through
                         doorways and down stairs carries real risk, so here's where we stand.</p>
-                    <p>We'll take responsibility for damage to your property caused by our negligence.
-                        Report it to us within <strong>[N] days</strong> of the job so we can look at it
-                        while the facts are fresh.</p>
+                    <p>We'll take responsibility for damage to your property caused by our negligence.</p>
+
+                    <h3>Tell us within 7 days</h3>
+                    <p>Please report damage within <strong>7 days</strong> of the job. That window exists
+                        for a practical reason, not a legal trick: a week on, we can still send the same
+                        crew back to look at it, check the before-and-after photos from that job, and tell
+                        whether a scuff was ours. A month on, nobody can honestly say — and that helps
+                        neither of us.</p>
+                    <p>So treat 7 days as <em>when we can do something about it</em>, not as a deadline
+                        that wipes out a real claim. If you find damage later, still tell us. It is harder
+                        to establish, and we may not be able to accept it, but we would rather hear about
+                        it than have you assume the door is shut. Nothing in this paragraph shortens any
+                        period Idaho law gives you to bring a claim.</p>
                     <p>We're not responsible for:</p>
                     <ul>
                         <li>Wear consistent with moving large items through tight spaces you've asked us to
@@ -324,10 +341,10 @@
                         new effective date.</p>
 
                     <h2 id="law">14. Governing law and disputes</h2>
-                    <p>These terms are governed by the laws of the State of <strong>[STATE]</strong>,
+                    <p>These terms are governed by the laws of the State of <strong>Idaho</strong>,
                         without regard to conflict-of-law rules. Any dispute that can't be worked out
                         directly belongs in the state or federal courts serving
-                        <strong>[COUNTY, STATE]</strong>.</p>
+                        <strong>Nez Perce County, Idaho</strong>.</p>
                     <p>Honestly, though: if something went wrong, call us first. We're a local business and
                         we'd much rather fix it than argue about it.</p>
                     <p>If any part of these terms is found unenforceable, the rest stays in effect.</p>
@@ -335,8 +352,8 @@
                     <h2 id="contact">15. Contact us</h2>
                     <ul>
                         <li><strong>Phone or text:</strong> <a href="tel:+12085036307">(208) 503-6307</a></li>
-                        <li><strong>Email:</strong> <a href="mailto:[CONTACT EMAIL]">[CONTACT EMAIL]</a></li>
-                        <li><strong>Mail:</strong> [BUSINESS LEGAL NAME], [MAILING ADDRESS]</li>
+                        <li><strong>Email:</strong> <a href="mailto:contact@hewcore.com">contact@hewcore.com</a></li>
+                        <li><strong>Mail:</strong> Lewis-Clark Junk Removal LLC, 921 Bryden Ave, Lewiston, Idaho 83501</li>
                     </ul>
                     <p>See also our <a href="/privacy.html">Privacy Policy</a>.</p>
 
@@ -366,7 +383,7 @@
                                 <path d="M17.5 6.6h.01"/>
                             </svg>
                         </a>
-                        <a href="mailto:hello@lcjr.com" aria-label="Email Lewis-Clark Junk Removal">
+                        <a href="mailto:contact@hewcore.com" aria-label="Email Lewis-Clark Junk Removal">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M3 6.5h18v11H3z"/>
@@ -415,7 +432,7 @@
         </div>
     </footer>
 
-    <script src="/src/main.js?v=13" defer></script>
+    <script src="/src/main.js?v=14" defer></script>
 </body>
 
 </html>
