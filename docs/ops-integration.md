@@ -7,7 +7,7 @@ end to end against a local D1: the site fetched live pricing, a browser
 submission landed as a `jobs` row with `source = 'website'`, and a forged
 `calculatorEstimateCents` was discarded in favour of the server's own maths.
 
-Website: `lcjr.com` (see open question 1) · Ops app: `app.lcjunk.com`
+Website: `lcjunk.com` · Ops app: `app.lcjunk.com`
 Client code: [`src/quote.js`](../src/quote.js)
 
 ---
@@ -58,6 +58,15 @@ it.
 
 `city` and `state` on each ZIP are used to pre-fill the customer's city and to
 keep ID/WA on the submission. Please include them.
+
+**Second consumer: the homepage.** [`src/home.js`](../src/home.js) reads the
+same endpoint to fill the hero's ballpark picker (each load's price, label and
+`estMinutes`) and the "Where we roll" town list (`city` + `state` per ZIP).
+Unlike the quote tool it never hides anything on failure — `index.html` ships
+last-known values and they simply stay. So renaming a `loadFractions` key
+(`eighth`, `quarter`, `half`, `three_quarter`, `full`) breaks the picker's
+match silently: the homepage keeps showing its shipped price for that load.
+Change the keys in `index.html` at the same time.
 
 ---
 
@@ -154,9 +163,9 @@ Practical consequences:
 
 ## Open questions
 
-1. **Which domain is the marketing site?** The spec says `lcjunk.com`; every
-   page here currently says `lcjr.com` (OG tags, the privacy policy, the terms).
-   The answer sets the CORS origin and needs fixing across the site either way.
+1. ~~Which domain is the marketing site?~~ **Done**: `lcjunk.com`. The OG tags,
+   the privacy policy and the terms all say `lcjunk.com` now. The ops app's CORS
+   origin should allow `https://lcjunk.com`.
 2. ~~The public phone number is a placeholder.~~ **Done** — the site now uses
    `(208) 503-6307` / `tel:+12085036307` throughout.
 3. **Callback window.** The ops app stamps `claim_deadline_at` at two business

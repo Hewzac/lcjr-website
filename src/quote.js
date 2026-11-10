@@ -255,24 +255,61 @@
     return node;
   }
 
-  // Side-view truck whose bed fills bottom-up in proportion to the load.
-  // Reads far better than "0.375".
+  /*
+   * Side-view pickup, cut away so the load in the bed shows — the same truck
+   * as the homepage picker (see LAYERS in the page build). Eight layers of
+   * junk from the bed floor up; a load shows its fraction of them. Reads far
+   * better than "0.375".
+   */
+  var LAYERS = [
+    [[16, 44, 1], [62, 30, 2], [94, 38, 3]],
+    [[16, 28, 2], [46, 46, 1], [94, 38, 2]],
+    [[16, 52, 3], [70, 34, 1], [106, 26, 2]],
+    [[16, 36, 1], [54, 40, 2], [96, 36, 1]],
+    [[16, 24, 2], [42, 50, 3], [94, 38, 1]],
+    [[16, 40, 1], [58, 36, 1], [96, 36, 2]],
+    [[16, 58, 2], [76, 30, 3], [108, 24, 1]],
+    [[16, 34, 3], [52, 44, 1], [98, 34, 2]],
+  ];
+
   function truckSvg(fraction) {
-    var boxY = 10, boxH = 24, boxX = 6, boxW = 56;
-    var fillH = Math.max(1.5, boxH * fraction);
-    var fillY = boxY + (boxH - fillH);
+    var shown = Math.max(1, Math.round(fraction * LAYERS.length));
+    var load = "";
+    for (var k = 0; k < shown; k++) {
+      var y = 87 - 7 * (k + 1) + 1;
+      LAYERS[k].forEach(function (it) {
+        load += '<rect class="j' + it[2] + '" x="' + it[0] + '" y="' + y +
+          '" width="' + it[1] + '" height="6" rx="1.5"/>';
+      });
+    }
     return (
-      '<svg class="truck" viewBox="0 0 96 50" role="img" aria-hidden="true">' +
-        '<rect class="truck-fill" x="' + boxX + '" y="' + fillY.toFixed(2) +
-          '" width="' + boxW + '" height="' + fillH.toFixed(2) + '" rx="1.5"/>' +
-        '<rect class="truck-box" x="4" y="8" width="60" height="28" rx="2.5"/>' +
-        '<path class="truck-cab" d="M64 36V16h11l8 9v11z"/>' +
-        '<path class="truck-line" d="M2 40h92"/>' +
-        '<circle class="truck-wheel" cx="22" cy="40" r="5"/>' +
-        '<circle class="truck-wheel" cx="76" cy="40" r="5"/>' +
+      '<svg class="truck" viewBox="0 0 240 120" aria-hidden="true" focusable="false">' +
+        load +
+        '<path class="pk-bed" d="M12 30V88H136V30"/>' +
+        '<rect class="pk-body" x="8" y="88" width="218" height="8" rx="2"/>' +
+        '<path class="pk-body" d="M140 88V40q0-6 6-6h38l20 22h14q8 0 8 8v24z"/>' +
+        '<path class="pk-window" d="M150 42h32l14 14h-46z"/>' +
+        '<circle class="pk-wheel" cx="50" cy="98" r="13"/>' +
+        '<circle class="pk-wheel" cx="186" cy="98" r="13"/>' +
+        '<circle class="pk-hub" cx="50" cy="98" r="4.5"/>' +
+        '<circle class="pk-hub" cx="186" cy="98" r="4.5"/>' +
       "</svg>"
     );
   }
+
+  /*
+   * A rough everyday picture of each size, so nobody has to know which
+   * truck turns up. Guidance for the customer only — the price comes from
+   * the API, and a supervisor confirms on site. Keep in step with the hints
+   * in index.html. A key the API adds later simply shows no hint.
+   */
+  var LOAD_HINTS = {
+    eighth: "A few bags or boxes, or one small piece",
+    quarter: "A mattress set, or a recliner and some bags",
+    half: "A couch plus a handful of boxes",
+    three_quarter: "Most of a room's furniture",
+    full: "A packed garage corner or a one-room cleanout",
+  };
 
   /* -------------------------------------------------------------- Steps -- */
 
@@ -374,7 +411,7 @@
     wrap.appendChild(el("p", {
       class: "lead",
       html: "We don't have <strong>" + escapeHtml(state.zip) + "</strong> on our regular route. " +
-        "That isn't always a no — leave a number and we'll tell you straight whether we can get there.",
+        "That isn't always a no. Leave a number and we'll tell you straight whether we can get there.",
     }));
 
     var form = el("form", { class: "outside-form", novalidate: "novalidate" });
@@ -436,7 +473,7 @@
     wrap.appendChild(el("h2", { text: "How much is there?" }));
     wrap.appendChild(el("p", {
       class: "lead",
-      text: "Pick the closest match. Nobody expects you to measure it — a rough call is fine, and we confirm on site.",
+      text: "Pick the closest match. Nobody expects you to measure it. A rough call is fine, and we confirm on site.",
     }));
 
     var group = el("fieldset", { class: "load-group" });
@@ -452,6 +489,7 @@
       label.appendChild(el("span", { class: "load-name", text: f.label }));
       label.appendChild(el("span", { class: "load-price", text: formatCents(f.priceCents) }));
       label.appendChild(el("span", { class: "load-time", text: "about " + f.estMinutes + " min on site" }));
+      if (LOAD_HINTS[f.key]) label.appendChild(el("span", { class: "load-hint", text: LOAD_HINTS[f.key] }));
       if (input.checked) label.classList.add("is-selected");
       input.addEventListener("change", function () {
         state.loadFraction = f;
@@ -541,7 +579,7 @@
     var bar = el("div", { class: "estimate-bar" });
     var left = el("div");
     left.appendChild(el("span", { class: "estimate-label", text: "Your estimate" }));
-    left.appendChild(el("span", { class: "estimate-value", id: "estimate-value", "aria-live": "polite", text: "—" }));
+    left.appendChild(el("span", { class: "estimate-value", id: "estimate-value", "aria-live": "polite", text: "–" }));
     bar.appendChild(left);
     bar.appendChild(el("p", {
       class: "estimate-disclaimer",
@@ -554,7 +592,7 @@
   function syncEstimate() {
     var node = document.getElementById("estimate-value");
     if (!node) return;
-    node.textContent = state.loadFraction ? formatCents(estimateCents()) : "—";
+    node.textContent = state.loadFraction ? formatCents(estimateCents()) : "–";
     var bar = root.querySelector(".estimate-bar");
     if (bar) bar.classList.remove("is-nudge");
   }
@@ -566,7 +604,7 @@
     wrap.appendChild(el("h2", { text: "Where and when" }));
     wrap.appendChild(el("p", {
       class: "lead",
-      text: "Name and phone are all we truly need. Everything else saves us a call — fill in what you know.",
+      text: "Name and phone are all we truly need. Everything else saves us a call, so fill in what you know.",
     }));
 
     var form = el("form", { class: "details-form", novalidate: "novalidate" });
@@ -698,7 +736,7 @@
       captureDetails();
       var err = form.querySelector("#details-error");
       if (!state.customerName || !state.phone) {
-        err.textContent = "We need a name and a phone number — that’s how we get back to you.";
+        err.textContent = "We need a name and a phone number. That’s how we get back to you.";
         form.querySelector(state.customerName ? "#d-phone" : "#d-name").focus();
         return;
       }
@@ -843,7 +881,7 @@
     wrap.appendChild(el("div", { class: "done-mark", html:
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
       'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>' }));
-    wrap.appendChild(el("h2", { text: "Got it — that's with us" }));
+    wrap.appendChild(el("h2", { text: "Got it. That's with us." }));
 
     var ref = result && (result.reference || result.jobId);
     if (ref) {
@@ -856,7 +894,7 @@
     wrap.appendChild(el("p", {
       class: "lead",
       text: "A supervisor reviews it and calls you back on the number you gave us. They'll confirm the " +
-        "real price and sort out a time — nothing is booked or owed until you've spoken to them.",
+        "real price and sort out a time. Nothing is booked or owed until you've spoken to them.",
     }));
     wrap.appendChild(el("p", {
       class: "form-note",
@@ -875,7 +913,7 @@
     wrap.appendChild(el("p", {
       class: "lead",
       text: "Our estimate tool isn't loading right now, and we'd rather not show you a number we can't " +
-        "stand behind. Call or text and we'll price it properly — a photo of the pile does it fastest.",
+        "stand behind. Call or text and we'll price it properly. A photo of the pile does it fastest.",
     }));
     var actions = el("div", { class: "btn-row" });
     actions.appendChild(el("a", { class: "btn btn--primary", href: "tel:+12085036307", text: "Call (208) 503-6307" }));

@@ -7,16 +7,16 @@
     <meta name="description" content="LCJR is locally owned junk removal for the Lewis-Clark Valley. Fast, affordable, no-hassle hauling for homes, estates, construction sites and businesses. Free quotes.">
     <meta name="keywords" content="junk removal, Lewiston Idaho, Clarkston Washington, Lewis-Clark Valley, affordable junk removal, commercial junk removal">
     <meta name="robots" content="index">
-    <meta name="theme-color" content="#0c100d">
+    <meta name="theme-color" content="#000000">
     <title>Lewis-Clark Junk Removal | Junk Removal in the Lewis-Clark Valley</title>
     <meta property="og:title" content="Lewis-Clark Junk Removal">
-    <meta property="og:description" content="We haul it all — fast, affordable and with zero hassle. Serving Lewiston, Clarkston, Asotin and beyond.">
-    <meta property="og:image" content="https://lcjr.com/images/lcjr-og.png">
+    <meta property="og:description" content="We haul it all, fast and affordable, with zero hassle. Serving Lewiston, Clarkston, Asotin and beyond.">
+    <meta property="og:image" content="https://lcjunk.com/images/lcjr-og.png">
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="600">
     <meta property="og:image:type" content="image/png">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="/src/style.css?v=14">
+    <link rel="stylesheet" href="/src/style.css?v=24">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -25,7 +25,7 @@
     <link rel="icon" href="/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600..800&family=Atkinson+Hyperlegible+Next:wght@400..700&display=swap" rel="stylesheet">
     <script>document.documentElement.classList.add("js");</script>
 </head>
 
@@ -33,303 +33,436 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
-        <div class="container header-inner">
-            <a class="brand" href="/" aria-label="Lewis-Clark Junk Removal home">
-                <img src="/images/lcjr-emblem-light.png" alt="Lewis-Clark Junk Removal">
-                <span class="brand-text">
-                    <span class="brand-name">Lewis-Clark Junk Removal</span>
-                    <span class="brand-tag">Lewiston &middot; Clarkston &middot; Asotin</span>
-                </span>
-            </a>
-
+        <div class="header-inner">
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
                 <span></span>
                 <span class="sr-only">Menu</span>
             </button>
 
+            <a class="brand" href="/" aria-label="Lewis-Clark Junk Removal home">
+                <img src="/images/lcjr-emblem-light.png" alt="" width="800" height="630">
+                <span class="brand-name">Lewis-Clark Junk Removal</span>
+            </a>
+
             <nav class="nav" id="primary-nav" aria-label="Primary">
-                <a href="/#services">Services</a>
+                <a href="/#how">How It Works</a>
+                <a href="/#take">What We Take</a>
                 <a href="/#areas">Areas</a>
-                <a href="/team.html">Team</a>
-                <a href="/aboutus.html">About Us</a>
-                <a class="btn btn--primary btn--sm" href="/quote.html">Get a Quote</a>
+                <a href="/b2b.html">Commercial Clients</a>
+                <a href="/aboutus.html">About</a>
+                <div class="nav-extra">
+                    <a class="btn btn--primary btn--lg" href="/quote.html">Get a free estimate</a>
+                    <a class="link-more" href="tel:+12085036307">Call (208) 503-6307</a>
+                </div>
             </nav>
 
             <div class="header-actions">
                 <a class="header-phone" href="tel:+12085036307">(208) 503-6307</a>
-                <a class="btn btn--primary btn--sm" href="/quote.html">Get a Quote</a>
+                <a class="btn btn--primary btn--sm" href="/quote.html">Get an estimate</a>
             </div>
+
+            <a class="header-call" href="tel:+12085036307" aria-label="Call (208) 503-6307"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.2 3.5 10 7.4 8 9.3a11.5 11.5 0 0 0 6.7 6.7l1.9-2 3.9 1.8v3.4a1.6 1.6 0 0 1-1.8 1.6C11 20.2 3.8 13 3.3 4.2A1.6 1.6 0 0 1 4.9 2.4h3.3Z"/></svg></a>
         </div>
     </header>
 
-    <main id="main">
+    <main id="main" class="main--wide">
 
         <!-- ------------------------------------------------------- Hero -- -->
-        <section class="hero">
-            <div class="container hero-grid">
-                <div>
-                    <span class="eyebrow">Lewis-Clark Valley &amp; Beyond</span>
-                    <h1>Junk Removal<span class="accent">Done Right</span></h1>
-                    <p class="lead">We haul it all — fast, affordable and with zero hassle. From estate
+        <section class="hero" data-fx="yard">
+            <div class="hero-main">
+                <div class="container hero-copy">
+                    <p class="eyebrow">Lewis-Clark Valley &middot; Idaho &amp; Washington</p>
+                    <h1>Junk removal, <span class="mark">done right.</span></h1>
+                    <p class="lead">We haul it all, fast and affordable, with zero hassle. From estate
                         cleanouts to construction debris, we've got you covered.</p>
-
-                    <div class="btn-row">
-                        <a class="btn btn--primary" href="/quote.html">Get a Free Quote</a>
-                        <a class="btn btn--ghost" href="tel:+12085036307">Call (208) 503-6307</a>
+                    <div class="btn-row btn-row--center">
+                        <a class="btn btn--primary btn--lg" href="/quote.html">Get a free estimate</a>
+                        <a class="link-more" href="tel:+12085036307">Call (208) 503-6307</a>
                     </div>
-
-                    <div class="hero-note">
-                        <span>Locally owned</span>
-                        <span>Free, no-obligation quotes</span>
-                        <span>24-hour turnaround</span>
-                    </div>
+                    <!-- The 1/8-load rate; home.js keeps it in step with /api/pricing. -->
+                    <p class="hero-from">Ballpark prices from <span data-rate-from>$89</span>. No sign-up.</p>
                 </div>
+            </div>
 
-                <aside class="hero-panel">
-                    <h3>How It Works</h3>
-                    <p>Three steps, no surprises, no upfront payment.</p>
-
-                    <ol class="step-list">
-                        <li class="step">
-                            <span class="step-num" aria-hidden="true">1</span>
-                            <div>
-                                <h4>Tell Us What You've Got</h4>
-                                <p>Call, text or send photos. We'll size up the job in minutes.</p>
-                            </div>
-                        </li>
-                        <li class="step">
-                            <span class="step-num" aria-hidden="true">2</span>
-                            <div>
-                                <h4>Get a Flat Quote</h4>
-                                <p>One price up front, based on volume. Nothing gets added later.</p>
-                            </div>
-                        </li>
-                        <li class="step">
-                            <span class="step-num" aria-hidden="true">3</span>
-                            <div>
-                                <h4>We Load and Go</h4>
-                                <p>We do the lifting and sweep the space before we leave.</p>
-                            </div>
-                        </li>
-                    </ol>
-
-                    <a class="btn btn--primary" href="/quote.html">Start My Quote</a>
-                </aside>
+            <div class="strip">
+                <ul class="container strip-list"><li>Locally owned in Lewiston</li><li>Residential &amp; commercial</li><li>Free, no-obligation estimates</li><li>Price confirmed before we lift</li></ul>
             </div>
         </section>
 
-        <!-- ------------------------------------------------------ Stats -- -->
+        <!-- ------------------------------------------------------ Bento -- -->
         <!--
-            The numbers below are read live from the ops app on load (see the
-            src/stats.js). The values written here are the
-            last known figures: they render for anyone without JavaScript, and
-            they stay put if the fetch fails, so the section is never blank or
-            zeroed by a network hiccup.
+            Read left to right, top to bottom: the three steps in order, then
+            the price tool (pick a size on the left, read the price on the
+            right), then the live numbers beside the service area, then the
+            commercial clients banner.
         -->
-        <section class="stats section--tight" data-api-base="https://app.lcjunk.com">
+        <section class="section section--glow" id="how">
             <div class="container">
-                <div class="stats-grid reveal">
-                    <div class="stat">
-                        <div class="stat-value" data-stat="poundsRemoved">21 lbs</div>
-                        <div class="stat-label">Pounds Removed</div>
+                <div class="section-head reveal">
+                    <h2>Everything up front.</h2>
+                    <p>See how it works, see a price, see the real numbers. All before you pick up the phone.</p>
+                </div>
+
+                <div class="bento">
+                <ol class="steps-row">
+                    <li class="tile step-card reveal">
+                        <span class="step-no">1</span>
+                        <h3>Tell us what you've got</h3>
+                        <p>Use the estimate tool, call, or text a photo of the pile.</p>
+                    </li>
+                    <li class="tile step-card reveal">
+                        <span class="step-no">2</span>
+                        <h3>Get the price before we lift</h3>
+                        <p>A supervisor confirms one flat price on site. It doesn't change while we load.</p>
+                    </li>
+                    <li class="tile step-card reveal">
+                        <span class="step-no">3</span>
+                        <h3>We load and go</h3>
+                        <p>We do the lifting, set aside what can be donated, and sweep up before we leave.</p>
+                    </li>
+                </ol>
+
+                <!--
+                    Ballpark picker. Works with no JavaScript at all: the radios drive
+                    the load in the truck and the readout through :has() in style.css.
+                    The prices here are the last known rates; src/home.js swaps in the
+                    live ones from GET /api/pricing and leaves these if it can't.
+
+                    The examples under each price ("A couch plus a handful of boxes")
+                    are a rough guide for the customer, not part of the price list.
+                    Keep them in step with LOAD_HINTS in src/quote.js.
+                -->
+                <div class="tile tile--picker loadtix reveal" data-api-base="https://app.lcjunk.com">
+                    <div class="picker-pick">
+                        <h3 class="tile-title">Ballpark it.</h3>
+                        <p class="tile-sub">Pick the closest size. No sign-up needed.</p>
+
+                        <svg class="pickup" viewBox="0 0 240 120" aria-hidden="true" focusable="false">
+                            <g class="pk-load">
+                            <g class="jl" style="--d:0"><rect class="j1" x="16" y="81" width="44" height="6" rx="1.5"/><rect class="j2" x="62" y="81" width="30" height="6" rx="1.5"/><rect class="j3" x="94" y="81" width="38" height="6" rx="1.5"/></g>
+                            <g class="jl" style="--d:1"><rect class="j2" x="16" y="74" width="28" height="6" rx="1.5"/><rect class="j1" x="46" y="74" width="46" height="6" rx="1.5"/><rect class="j2" x="94" y="74" width="38" height="6" rx="1.5"/></g>
+                            <g class="jl" style="--d:2"><rect class="j3" x="16" y="67" width="52" height="6" rx="1.5"/><rect class="j1" x="70" y="67" width="34" height="6" rx="1.5"/><rect class="j2" x="106" y="67" width="26" height="6" rx="1.5"/></g>
+                            <g class="jl" style="--d:3"><rect class="j1" x="16" y="60" width="36" height="6" rx="1.5"/><rect class="j2" x="54" y="60" width="40" height="6" rx="1.5"/><rect class="j1" x="96" y="60" width="36" height="6" rx="1.5"/></g>
+                            <g class="jl" style="--d:4"><rect class="j2" x="16" y="53" width="24" height="6" rx="1.5"/><rect class="j3" x="42" y="53" width="50" height="6" rx="1.5"/><rect class="j1" x="94" y="53" width="38" height="6" rx="1.5"/></g>
+                            <g class="jl" style="--d:5"><rect class="j1" x="16" y="46" width="40" height="6" rx="1.5"/><rect class="j1" x="58" y="46" width="36" height="6" rx="1.5"/><rect class="j2" x="96" y="46" width="36" height="6" rx="1.5"/></g>
+                            <g class="jl" style="--d:6"><rect class="j2" x="16" y="39" width="58" height="6" rx="1.5"/><rect class="j3" x="76" y="39" width="30" height="6" rx="1.5"/><rect class="j1" x="108" y="39" width="24" height="6" rx="1.5"/></g>
+                            <g class="jl" style="--d:7"><rect class="j3" x="16" y="32" width="34" height="6" rx="1.5"/><rect class="j1" x="52" y="32" width="44" height="6" rx="1.5"/><rect class="j2" x="98" y="32" width="34" height="6" rx="1.5"/></g>
+                            </g>
+                            <path class="pk-bed" d="M12 30V88H136V30"/>
+                            <path class="pk-tick" d="M12 73h7M12 59h7M12 45h7"/>
+                            <rect class="pk-body" x="8" y="88" width="218" height="8" rx="2"/>
+                            <path class="pk-body" d="M140 88V40q0-6 6-6h38l20 22h14q8 0 8 8v24z"/>
+                            <path class="pk-window" d="M150 42h32l14 14h-46z"/>
+                            <path class="pk-ground" d="M0 112h240"/>
+                            <circle class="pk-wheel" cx="50" cy="98" r="13"/>
+                            <circle class="pk-wheel" cx="186" cy="98" r="13"/>
+                            <circle class="pk-hub" cx="50" cy="98" r="4.5"/>
+                            <circle class="pk-hub" cx="186" cy="98" r="4.5"/>
+                        </svg>
+
+                        <fieldset class="seg">
+                            <legend class="seg-legend">How much is there?</legend>
+                            <div class="seg-options">
+                                <label><input type="radio" name="lt" id="lt-eighth" value="eighth"><span>1/8</span></label>
+                                <label><input type="radio" name="lt" id="lt-quarter" value="quarter" checked><span>1/4</span></label>
+                                <label><input type="radio" name="lt" id="lt-half" value="half"><span>1/2</span></label>
+                                <label><input type="radio" name="lt" id="lt-three_quarter" value="three_quarter"><span>3/4</span></label>
+                                <label><input type="radio" name="lt" id="lt-full" value="full"><span>Full</span></label>
+                            </div>
+                        </fieldset>
                     </div>
-                    <div class="stat">
-                        <div class="stat-value" data-stat="jobsCompleted">1</div>
-                        <div class="stat-label">Jobs Completed</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value" data-stat="signedOffPct">100%</div>
-                        <div class="stat-label">Signed Off</div>
+
+                    <div class="picker-price">
+                        <div class="loadtix-readouts" aria-live="polite">
+                            <div class="loadtix-readout" data-for="eighth">
+                                <p class="lt-price" data-rate="eighth">$89</p>
+                                <p class="lt-meta"><span data-rate-label="eighth">1/8 load</span> &middot; about <span data-rate-min="eighth">30</span> min</p>
+                                <p class="lt-hint">A few bags or boxes, or one small piece</p>
+                            </div>
+                            <div class="loadtix-readout" data-for="quarter">
+                                <p class="lt-price" data-rate="quarter">$149</p>
+                                <p class="lt-meta"><span data-rate-label="quarter">1/4 load</span> &middot; about <span data-rate-min="quarter">45</span> min</p>
+                                <p class="lt-hint">A mattress set, or a recliner and some bags</p>
+                            </div>
+                            <div class="loadtix-readout" data-for="half">
+                                <p class="lt-price" data-rate="half">$249</p>
+                                <p class="lt-meta"><span data-rate-label="half">1/2 load</span> &middot; about <span data-rate-min="half">75</span> min</p>
+                                <p class="lt-hint">A couch plus a handful of boxes</p>
+                            </div>
+                            <div class="loadtix-readout" data-for="three_quarter">
+                                <p class="lt-price" data-rate="three_quarter">$339</p>
+                                <p class="lt-meta"><span data-rate-label="three_quarter">3/4 load</span> &middot; about <span data-rate-min="three_quarter">100</span> min</p>
+                                <p class="lt-hint">Most of a room's furniture</p>
+                            </div>
+                            <div class="loadtix-readout" data-for="full">
+                                <p class="lt-price" data-rate="full">$429</p>
+                                <p class="lt-meta"><span data-rate-label="full">Full load</span> &middot; about <span data-rate-min="full">135</span> min</p>
+                                <p class="lt-hint">A packed garage corner or a one-room cleanout</p>
+                            </div>
+                        </div>
+                        <p class="loadtix-note">An estimate, not a quote. A supervisor confirms the price on site before
+                            anything is lifted. Say no and you owe nothing.</p>
+                        <a class="btn btn--primary btn--lg" href="/quote.html">Get my estimate</a>
                     </div>
                 </div>
-                <p class="stats-note reveal">Live from our own dispatch system, not a marketing page &mdash;
-                    weights come off the scale ticket at the facility, and &ldquo;signed off&rdquo; means the
-                    customer put their name to the finished job. We started on March 30th, so the numbers are
-                    small. We would rather show you the true ones.</p>
+
+                <div class="duo">
+                    <!--
+                        The numbers are read live from the ops app on load (src/stats.js).
+                        The values written here are the last known figures: they render
+                        without JavaScript and stay put if the fetch fails, so the tile is
+                        never blank or zeroed by a network hiccup.
+                    -->
+                    <div class="tile tile--special tile--stats stats reveal" data-api-base="https://app.lcjunk.com">
+                        <div class="stats-head">
+                            <h3 class="tile-title">The real numbers.</h3>
+                            <p class="live-badge"><span class="live-dot" aria-hidden="true"></span>Live from dispatch</p>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <span class="stat-value" data-stat="poundsRemoved">21 lbs</span>
+                                <span class="stat-label">Removed</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" data-stat="jobsCompleted">1</span>
+                                <span class="stat-label">Jobs done</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" data-stat="signedOffPct">100%</span>
+                                <span class="stat-label">Signed off</span>
+                            </div>
+                        </div>
+                        <p class="tile-note">Straight from our dispatch system. Weights come off the scale ticket, and
+                            &ldquo;signed off&rdquo; means the customer put their name to the finished job. We started
+                            on March 30th, so the numbers are small. But they're true.</p>
+                    </div>
+
+                    <div class="tile tile--areas reveal" id="areas">
+                        <h3 class="tile-title">Where we roll.</h3>
+                        <p class="tile-sub">Based in the valley and happy to travel.</p>
+
+                        <!-- Last known service list. src/home.js refreshes it from /api/pricing. -->
+                        <div class="route" data-areas>
+                            <div class="route-group">
+                                <h4 class="route-state">Idaho</h4>
+                                <ul class="route-list" data-areas-state="ID">
+                                    <li><span>Lewiston</span><span class="route-zip">83501</span></li>
+                                    <li><span>Lapwai</span><span class="route-zip">83540</span></li>
+                                    <li><span>Culdesac</span><span class="route-zip">83524</span></li>
+                                    <li><span>Peck</span><span class="route-zip">83545</span></li>
+                                    <li><span>Genesee</span><span class="route-zip">83832</span></li>
+                                    <li><span>Juliaetta</span><span class="route-zip">83535</span></li>
+                                    <li><span>Kendrick</span><span class="route-zip">83537</span></li>
+                                    <li><span>Lenore</span><span class="route-zip">83536</span></li>
+                                </ul>
+                            </div>
+                            <div class="route-group">
+                                <h4 class="route-state">Washington</h4>
+                                <ul class="route-list" data-areas-state="WA">
+                                    <li><span>Clarkston</span><span class="route-zip">99403</span></li>
+                                    <li><span>Asotin</span><span class="route-zip">99402</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="link-more" href="/quote.html">Not on the list? Check your ZIP</a>
+                    </div>
+                </div>
+
+                <a class="tile tile--special tile--commercial reveal" href="/b2b.html">
+                    <div>
+                        <p class="eyebrow">Commercial Clients</p>
+                        <h3 class="tile-title">Your crew for the heavy stuff.</h3>
+                        <p class="tile-sub">Property managers, contractors and landlords: recurring pickups, job-site
+                            cleanups and turnovers, invoiced with net terms.</p>
+                    </div>
+                    <span class="btn btn--ghost btn--lg">Commercial accounts</span>
+                </a>
+                </div>
             </div>
         </section>
 
-        <!-- --------------------------------------------------- Services -- -->
-        <section class="section" id="services">
-            <div class="container">
-                <div class="section-head is-center reveal">
-                    <span class="eyebrow">What We Do</span>
-                    <h2>We Haul It All</h2>
-                    <p>If you can point at it, we can probably take it. Here's what fills the truck most weeks.</p>
+        <!-- ------------------------------------------------------- Jobs -- -->
+        <section class="section section--flush-top" id="jobs">
+            <div class="container carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="What we clear out">
+                <div class="section-head reveal">
+                    <h2>What are we clearing out?</h2>
                 </div>
 
-                <div class="grid grid--4 reveal">
-                    <article class="card">
-                        <div class="card-icon">
-                            <!-- Sofa -->
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M4.5 10.5V7.5A2.5 2.5 0 0 1 7 5h10a2.5 2.5 0 0 1 2.5 2.5v3"/>
-                                <path d="M2 13a1.75 1.75 0 0 1 3.5 0v2.5h13V13A1.75 1.75 0 0 1 22 13v5H2Z"/>
-                                <path d="M5.5 18v1.5M18.5 18v1.5"/>
-                            </svg>
-                        </div>
-                        <h3>Furniture &amp; Appliances</h3>
+                <!--
+                    Without JavaScript this is a row you can scroll sideways.
+                    home.js turns it into a centered carousel: the current card
+                    in front, its neighbours peeking either side, advancing on
+                    its own every few seconds (with a pause button) unless the
+                    visitor prefers reduced motion.
+                -->
+                <ul class="carousel-track" tabindex="0">
+                    <li><a class="job" href="/quote.html">
+                        <svg class="icon job-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 10.5V7.5A2.5 2.5 0 0 1 7 5h10a2.5 2.5 0 0 1 2.5 2.5v3"/><path d="M2 13a1.75 1.75 0 0 1 3.5 0v2.5h13V13A1.75 1.75 0 0 1 22 13v5H2Z"/><path d="M5.5 18v1.5M18.5 18v1.5"/></svg>
+                        <h3>Furniture &amp; appliances</h3>
                         <p>Couches, mattresses, fridges, washers.</p>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon">
-                            <!-- Stacked lumber and board offcuts -->
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M2.5 5.5h14v4h-14z"/>
-                                <path d="M7.5 10.5h14v4h-14z"/>
-                                <path d="M2.5 15.5h14v4h-14z"/>
-                                <path d="M6 5.5v4M11 10.5v4M6 15.5v4"/>
-                            </svg>
-                        </div>
-                        <h3>Construction Debris</h3>
+                    </a></li>
+                    <li><a class="job" href="/quote.html">
+                        <svg class="icon job-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m2.5 10.5 9.5-7 9.5 7"/><path d="M5 9.2V20h14V9.2"/><path d="M9 20v-6h6v6"/><path d="M9 17h6"/></svg>
+                        <h3>Estate cleanouts</h3>
+                        <p>Full property cleanouts, start to finish, handled carefully.</p>
+                    </a></li>
+                    <li><a class="job" href="/quote.html">
+                        <svg class="icon job-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10 12 4l9 6v10H3z"/><path d="M7 20v-7h10v7M7 15.5h10M7 18h10"/></svg>
+                        <h3>Garage &amp; shed</h3>
+                        <p>Years of &ldquo;we'll deal with it later,&rdquo; gone in an afternoon.</p>
+                    </a></li>
+                    <li><a class="job" href="/quote.html">
+                        <svg class="icon job-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 5.5h14v4h-14z"/><path d="M7.5 10.5h14v4h-14z"/><path d="M2.5 15.5h14v4h-14z"/><path d="M6 5.5v4M11 10.5v4M6 15.5v4"/></svg>
+                        <h3>Construction debris</h3>
                         <p>Drywall, lumber, tile, roofing scraps.</p>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon">
-                            <!-- House with garage door -->
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="m2.5 10.5 9.5-7 9.5 7"/>
-                                <path d="M5 9.2V20h14V9.2"/>
-                                <path d="M9 20v-6h6v6"/>
-                                <path d="M9 17h6"/>
-                            </svg>
-                        </div>
-                        <h3>Estate &amp; Garage Cleanouts</h3>
-                        <p>Full property cleanouts, start to finish.</p>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-icon">
-                            <!-- Leaf and stem -->
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M19.5 4c0 7.4-5.1 12.4-11.4 13C7.3 10 12.2 4.7 19.5 4Z"/>
-                                <path d="M19.5 4 8.1 17"/>
-                                <path d="M8.1 17 5 21"/>
-                            </svg>
-                        </div>
-                        <h3>Yard &amp; Green Waste</h3>
+                    </a></li>
+                    <li><a class="job" href="/quote.html">
+                        <svg class="icon job-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 4c0 7.4-5.1 12.4-11.4 13C7.3 10 12.2 4.7 19.5 4Z"/><path d="M19.5 4 8.1 17"/><path d="M8.1 17 5 21"/></svg>
+                        <h3>Yard &amp; green waste</h3>
                         <p>Tree trimmings, bush piles, old landscaping.</p>
-                    </article>
+                    </a></li>
+                    <li><a class="job" href="/quote.html">
+                        <svg class="icon job-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9"/></svg>
+                        <h3>Moving out</h3>
+                        <p>Whatever isn't making the trip, gone before the keys are.</p>
+                    </a></li>
+                    <li><a class="job" href="/quote.html">
+                        <svg class="icon job-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5h18v7H3z"/><path d="M6 15.5V19M18 15.5V19M7 8.5V6.5M17 8.5V6.5"/></svg>
+                        <h3>Mattresses</h3>
+                        <p>Old mattresses and box springs, out of the house and disposed of properly.</p>
+                    </a></li>
+                    <li><a class="job" href="/quote.html">
+                        <svg class="icon job-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18v9H3z"/><path d="M6 10V7.5A2.5 2.5 0 0 1 8.5 5h7A2.5 2.5 0 0 1 18 7.5V10"/><path d="M7 14h2M11 14h2M15 14h2"/></svg>
+                        <h3>Hot tubs &amp; pianos</h3>
+                        <p>Heavy and awkward is the job. Priced up front so it isn't a surprise.</p>
+                    </a></li>
+                </ul>
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn carousel-prev" type="button" aria-label="Previous">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+                    </button>
+                    <div class="carousel-dots" role="group" aria-label="Choose a card"></div>
+                    <button class="carousel-btn carousel-next" type="button" aria-label="Next">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+                    </button>
+                    <button class="carousel-btn carousel-play" type="button" aria-label="Pause" hidden>
+                        <svg class="icon icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>
+                        <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- ------------------------------------------------------ Areas -- -->
-        <section class="section" id="areas">
+        <!-- ---------------------------------------------- Take / can't -- -->
+        <!--
+            The "can't take" column mirrors section 6 of terms.html. If one
+            changes, change the other: the Terms are what a customer agrees to.
+        -->
+        <section class="section section--flush-top section--glow-alt" id="take">
             <div class="container">
-                <div class="section-head is-center reveal">
-                    <span class="eyebrow">Service Areas</span>
-                    <h2>Where We Roll</h2>
-                    <p>Based in the valley and happy to travel. Outside the list? Ask — the answer is usually yes.</p>
+                <div class="section-head reveal">
+                    <h2>What we take. What we can't.</h2>
+                    <p>Not sure about something? Text a photo to
+                        <a href="sms:+12085036307">(208) 503-6307</a> and we'll tell you straight.</p>
                 </div>
 
-                <div class="grid grid--4 reveal">
-                    <div class="area-card">
-                        <span class="area-dot" aria-hidden="true"></span>
-                        <div>
-                            <h4>Lewiston</h4>
-                            <p>Idaho</p>
-                        </div>
+                <div class="take-grid reveal">
+                    <div class="take take--yes">
+                        <h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>We take</h3>
+                        <ul>
+                            <li>Furniture, couches and beds</li>
+                            <li>Mattresses and box springs<sup>*</sup></li>
+                            <li>Appliances, including fridges and freezers<sup>*</sup></li>
+                            <li>TVs, monitors and electronics<sup>*</sup></li>
+                            <li>Construction and remodel debris</li>
+                            <li>Yard waste, branches and brush</li>
+                            <li>Tires<sup>*</sup></li>
+                            <li>Garage, shed and estate contents</li>
+                        </ul>
+                        <p class="take-foot"><sup>*</sup> Carries a disposal fee from the facility. We tell you before we load it, never after.</p>
                     </div>
-                    <div class="area-card">
-                        <span class="area-dot" aria-hidden="true"></span>
-                        <div>
-                            <h4>Clarkston</h4>
-                            <p>Washington</p>
-                        </div>
+
+                    <div class="take take--no">
+                        <h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>We can't take</h3>
+                        <ul>
+                            <li>Paint, solvents, chemicals, fuel, oil and other hazardous liquids</li>
+                            <li>Asbestos, or anything that may contain it</li>
+                            <li>Ammunition, explosives, and flammable or pressurized containers</li>
+                            <li>Medical or biological waste, including sharps</li>
+                            <li>Human or animal remains</li>
+                        </ul>
+                        <p class="take-foot">If we find something on this list once we're there, we leave it and take the rest.</p>
                     </div>
-                    <div class="area-card">
-                        <span class="area-dot" aria-hidden="true"></span>
-                        <div>
-                            <h4>Asotin</h4>
-                            <p>Washington</p>
-                        </div>
+
+                    <div class="take take--where">
+                        <h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-14.3 4.9M4 12A8 8 0 0 1 18.3 7.1"/><path d="M18.5 3v4.2h-4.2M5.5 21v-4.2h4.2"/></svg>Where it goes</h3>
+                        <ol class="flow">
+                            <li><strong>Donate.</strong> If it's still useful, it goes to someone who can use it.</li>
+                            <li><strong>Recycle.</strong> What a facility will take back gets recycled, not buried.</li>
+                            <li><strong>Dispose.</strong> The rest goes to a licensed facility, with the scale ticket to show for it.</li>
+                        </ol>
                     </div>
-                    <a class="area-card area-card--more" href="/quote.html">
-                        <span class="area-dot" aria-hidden="true"></span>
-                        <div>
-                            <h4>More Areas</h4>
-                            <p>Just ask</p>
-                        </div>
-                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- -------------------------------------------------------- FAQ -- -->
-        <section class="section section--alt">
-            <div class="container">
-                <div class="section-head is-center reveal">
-                    <span class="eyebrow">Questions</span>
-                    <h2>Good To Know</h2>
-                </div>
-
-                <div class="faq reveal">
-                    <details>
-                        <summary>How much does it cost?</summary>
-                        <p>Pricing is based on how much space your load takes up in the truck, not on
-                            weight or hourly rates. You get one flat number before we start, and it
-                            doesn't change once we're loading.</p>
-                    </details>
-                    <details>
-                        <summary>Do I have to be there?</summary>
-                        <p>Not necessarily. If everything is outside, in a garage, or otherwise easy to
-                            find, we can handle the pickup and send photos when the job is done.</p>
-                    </details>
-                    <details>
-                        <summary>How fast can you get here?</summary>
-                        <p>Most jobs in the valley get handled within 24 hours. Same-day pickups happen
-                            often — call and ask.</p>
-                    </details>
-                    <details>
-                        <summary>What can't you take?</summary>
-                        <p>Hazardous material is the main one — paint, chemicals, solvents, asbestos and
-                            similar. If you're not sure about something, send a photo and we'll tell you
-                            straight.</p>
-                    </details>
-                    <details>
-                        <summary>Do you do commercial work?</summary>
-                        <p>Yes. Recurring pickups, job-site cleanups and unit turnovers all get handled on
-                            invoice rather than cash at the curb. Call or text
-                            <a class="accent" href="tel:+12085036307"><strong>(208) 503-6307</strong></a>
-                            and we'll set up an account.</p>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- -------------------------------------------------------- CTA -- -->
-        <section class="section cta" id="contact">
-            <div class="container cta-grid">
+        <!-- -------------------------------------------------- FAQ + CTA -- -->
+        <section class="section section--flush-top" id="faq">
+            <div class="container closer">
                 <div class="reveal">
-                    <span class="eyebrow">Get Started</span>
-                    <h2>Ready To <span class="accent">Ditch</span> The Junk?</h2>
-                    <p>Get a free, no-obligation quote in minutes. We're local, we're fast, and we'll
-                        leave the space looking clean. Call or text us anytime.</p>
+                    <div class="section-head">
+                        <h2>Questions, answered.</h2>
+                    </div>
+                    <div class="faq">
+                        <details>
+                            <summary>How much does it cost?</summary>
+                            <p>Pricing goes by how much room your load takes up. Not weight, not hourly. The
+                                estimate tool gives you a ballpark in a couple of minutes. A supervisor confirms one
+                                flat price on site before we start, and it doesn't change while we're loading. A few
+                                items, like mattresses, tires and fridges, carry a disposal fee. We tell you
+                                before we load them.</p>
+                        </details>
+                        <details>
+                            <summary>Do I have to be there?</summary>
+                            <p>Not necessarily. If everything is outside, in a garage, or otherwise easy to find, we
+                                can handle the pickup and send photos when the job is done.</p>
+                        </details>
+                        <details>
+                            <summary>How fast can you get here?</summary>
+                            <p>We aim to get most jobs in the valley done within 24 hours, and same-day pickups
+                                happen often. Call and ask.</p>
+                        </details>
+                        <details>
+                            <summary>What can't you take?</summary>
+                            <p>Hazardous material is the main one: paint, chemicals, solvents, fuel, asbestos
+                                and similar. The <a href="#take">full list is above</a>. If you're not sure about
+                                something, send a photo and we'll tell you straight.</p>
+                        </details>
+                        <details>
+                            <summary>What happens to my stuff?</summary>
+                            <p>We sort as we load. Anything still useful gets donated, what can be recycled gets
+                                recycled, and the rest goes to a licensed disposal facility.</p>
+                        </details>
+                        <details>
+                            <summary>Do you do commercial work?</summary>
+                            <p>Yes. Recurring pickups, job-site cleanups and unit turnovers, all invoiced rather than
+                                cash at the curb. See <a href="/b2b.html">how commercial accounts work</a>, or call
+                                <a href="tel:+12085036307">(208) 503-6307</a> and we'll set one up.</p>
+                        </details>
+                    </div>
                 </div>
 
-                <div class="contact-card reveal">
-                    <div class="contact-row">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.2 3.5 10 7.4 8 9.3a11.5 11.5 0 0 0 6.7 6.7l1.9-2 3.9 1.8v3.4a1.6 1.6 0 0 1-1.8 1.6C11 20.2 3.8 13 3.3 4.2A1.6 1.6 0 0 1 4.9 2.4h3.3Z"/></svg>
-                        <div>
-                            <div class="label">Call or text</div>
-                            <a class="value" href="tel:+12085036307">(208) 503-6307</a>
-                        </div>
+                <div class="closer-cta tile reveal" id="contact">
+                    <h2>Ready to ditch <span class="mark">the junk?</span></h2>
+                    <p>Free, no-obligation estimates. We're local, we're fast, and we leave the space clean.</p>
+                    <a class="btn btn--primary btn--lg btn--block" href="/quote.html">Get a free estimate</a>
+                    <div class="callcard">
+                        <span class="callcard-label">Call or text</span>
+                        <a class="callcard-number" href="tel:+12085036307">(208) 503-6307</a>
+                        <p class="callcard-hours">Mon&ndash;Fri, after 3PM</p>
                     </div>
-                    <div class="contact-row">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18Z"/><path d="M12 7.2V12l3.2 2"/></svg>
-                        <div>
-                            <div class="label">Hours</div>
-                            <div class="value value--sm">Mon–Fri, after 3PM</div>
-                        </div>
-                    </div>
-                    <a class="btn btn--light" href="tel:+12085036307">Call Now, It's Free</a>
+                    <a class="link-more" href="sms:+12085036307">Or text us a photo of the pile</a>
                 </div>
             </div>
         </section>
@@ -340,63 +473,54 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/"><img src="/images/lcjr-emblem-light.png" alt="Lewis-Clark Junk Removal"></a>
+                    <a class="footer-logo" href="/"><img src="/images/lcjr-emblem-light.png" alt="" width="800" height="630"><span class="brand-name">Lewis-Clark Junk Removal</span></a>
                     <p>Locally owned junk removal serving the Lewis-Clark Valley and the towns around it.</p>
                     <p class="footer-owner">
                         <span class="owner-dot" aria-hidden="true"><svg viewBox="268 546 1512 956" fill="currentColor" aria-hidden="true"><path d="M836.38,1103.24h-409.13v398.4h-158.5v-955.28h158.5v398.4h409.13c-4.31,25.78-6.55,52.24-6.55,79.24,0,.68,0,1.36.01,2.04v.05c.11,26.28,2.34,52.04,6.54,77.15Z"/><path d="M1032.42,546.36c-83.49,47.65-153.27,116.58-201.97,199.38v-199.38h201.97Z"/><path d="M1032.42,1501.64h-202.59v-200.44c48.72,83.28,118.74,152.58,202.59,200.44Z"/><path d="M1779.25,1099.06c-36,228.13-233.51,402.58-471.77,402.58-122.69,0-234.57-46.27-319.16-122.29-78.68-70.71-133.75-167.17-151.94-276.11-4.19-25.11-6.43-50.87-6.54-77.15v-.05c-.01-.68-.01-1.36-.01-2.04,0-27,2.24-53.47,6.55-79.24,18.19-108.95,73.25-205.4,151.94-276.11,84.58-76.02,196.47-122.29,319.16-122.29,235.35,0,430.92,170.2,470.39,394.22h-162.25c-36.68-135.8-160.74-235.72-308.13-235.72s-274,101.97-309.24,239.9c-6.48,25.34-9.92,51.88-9.92,79.24s3.43,53.91,9.92,79.24c35.24,137.93,160.34,239.91,309.24,239.91s276.51-104.05,310.26-244.09h161.51Z"/></svg></span>
                         <span>A <strong>Hewcore Corp.</strong> company</span>
                     </p>
-                    <div class="footer-social">
-                        <a href="https://www.instagram.com/lewisclarkjunkremoval/" target="_blank" rel="noopener"
-                            aria-label="Lewis-Clark Junk Removal on Instagram">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Z"/>
-                                <path d="M16 11.4a4 4 0 1 1-3.4-3.4 4 4 0 0 1 3.4 3.4Z"/>
-                                <path d="M17.5 6.6h.01"/>
-                            </svg>
-                        </a>
-                        <a href="mailto:contact@hewcore.com" aria-label="Email Lewis-Clark Junk Removal">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M3 6.5h18v11H3z"/>
-                                <path d="m3 7 9 6 9-6"/>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
 
                 <nav class="footer-col" aria-label="Services">
-                    <h4>Services</h4>
+                    <h2 class="footer-h">Services</h2>
                     <ul>
-                        <li><a href="/#services">Furniture &amp; Appliances</a></li>
-                        <li><a href="/#services">Construction Debris</a></li>
-                        <li><a href="/#services">Estate Cleanouts</a></li>
-                        <li><a href="/#services">Yard &amp; Green Waste</a></li>
+                        <li><a href="/#jobs">Furniture &amp; Appliances</a></li>
+                        <li><a href="/#jobs">Estate Cleanouts</a></li>
+                        <li><a href="/#jobs">Construction Debris</a></li>
+                        <li><a href="/#jobs">Yard &amp; Green Waste</a></li>
+                        <li><a href="/#take">What We Take</a></li>
                     </ul>
                 </nav>
 
                 <nav class="footer-col" aria-label="Company">
-                    <h4>Company</h4>
+                    <h2 class="footer-h">Company</h2>
                     <ul>
+                        <li><a href="/b2b.html">Commercial Clients</a></li>
                         <li><a href="/aboutus.html">About Us</a></li>
-                        <li><a href="/team.html">The Team</a></li>
-                        <li><a href="/quote.html">Get a Quote</a></li>
+                        <li><a href="/aboutus.html#team">The Team</a></li>
+                        <li><a href="/#areas">Service Areas</a></li>
+                        <li><a href="/quote.html">Get an Estimate</a></li>
                     </ul>
                 </nav>
 
                 <div class="footer-col">
-                    <h4>Contact</h4>
+                    <h2 class="footer-h">Contact</h2>
                     <ul>
                         <li><a href="tel:+12085036307">(208) 503-6307</a></li>
+                        <li><a href="mailto:contact@hewcore.com">contact@hewcore.com</a></li>
                         <li>Mon&ndash;Fri, after 3PM</li>
-                        <li>Lewiston, Clarkston &amp; Asotin</li>
+                        <li><address>921 Bryden Ave<br>Lewiston, ID 83501</address></li>
                     </ul>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/lewisclarkjunkremoval/" target="_blank" rel="noopener"
+                            aria-label="Lewis-Clark Junk Removal on Instagram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Z"/><path d="M16 11.4a4 4 0 1 1-3.4-3.4 4 4 0 0 1 3.4 3.4Z"/><path d="M17.5 6.6h.01"/></svg></a>
+                        <a href="mailto:contact@hewcore.com" aria-label="Email Lewis-Clark Junk Removal"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18v11H3z"/><path d="m3 7 9 6 9-6"/></svg></a>
+                    </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 Lewis-Clark Junk Removal. All rights reserved.</p>
+                <p>&copy; 2026 Lewis-Clark Junk Removal LLC. All rights reserved.</p>
                 <nav class="footer-legal" aria-label="Legal">
                     <a href="/privacy.html">Privacy Policy</a>
                     <a href="/terms.html">Terms of Service</a>
@@ -405,8 +529,16 @@
         </div>
     </footer>
 
-    <script src="/src/main.js?v=14" defer></script>
-    <script src="/src/stats.js?v=14" defer></script>
+    <nav class="mbar" aria-label="Quick contact">
+        <a class="mbar-btn" href="tel:+12085036307"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.2 3.5 10 7.4 8 9.3a11.5 11.5 0 0 0 6.7 6.7l1.9-2 3.9 1.8v3.4a1.6 1.6 0 0 1-1.8 1.6C11 20.2 3.8 13 3.3 4.2A1.6 1.6 0 0 1 4.9 2.4h3.3Z"/></svg><span>Call</span></a>
+        <a class="mbar-btn" href="sms:+12085036307"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10H9l-5 4z"/></svg><span>Text</span></a>
+        <a class="mbar-btn mbar-btn--primary" href="/quote.html"><span>Estimate</span></a>
+    </nav>
+
+    <script src="/src/main.js?v=24" defer></script>
+    <script src="/src/stats.js?v=24" defer></script>
+    <script src="/src/home.js?v=24" defer></script>
+    <script src="/src/hero-fx.js?v=24" defer></script>
 </body>
 
 </html>
