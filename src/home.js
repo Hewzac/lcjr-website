@@ -275,3 +275,104 @@
   render();
   setPaused(paused);
 })();
+
+/* ==========================================================================
+   Phone slider: the price tool, the steps and the service area.
+
+   Up to 900px wide those three cards sit side by side and slide across
+   one at a time: tap a button above them or swipe. The row eases to the
+   new card and its height eases to fit it, so a short card leaves no gap.
+   Cards out of view are inert, so the keyboard and screen readers only
+   meet the one showing. On a wider screen the wrappers drop away (CSS),
+   the cards join the grid, and this stands down.
+   ========================================================================== */
+
+(function () {
+  "use strict";
+
+  var slider = document.querySelector("[data-slider]");
+  if (!slider) return;
+
+  var track = slider.querySelector(".slider-track");
+  var tabs = Array.prototype.slice.call(slider.querySelectorAll(".slider-tabs button"));
+  var slides = Array.prototype.slice.call(track.children);
+  var narrow = window.matchMedia("(max-width: 900px)");
+  var current = 0;
+
+  function fit() {
+    track.style.height = narrow.matches ? slides[current].offsetHeight + "px" : "";
+  }
+
+  function go(i) {
+    current = Math.max(0, Math.min(slides.length - 1, i));
+    slider.style.setProperty("--i", current);
+    tabs.forEach(function (t, k) {
+      if (k === current) t.setAttribute("aria-current", "true");
+      else t.removeAttribute("aria-current");
+    });
+    slides.forEach(function (s, k) {
+      var off = narrow.matches && k !== current;
+      s.classList.toggle("is-off", off);
+      if (off) s.setAttribute("inert", "");
+      else s.removeAttribute("inert");
+    });
+    fit();
+  }
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { go(i); });
+  });
+
+  // Swipe: the row follows the finger, then settles on the nearest card.
+  // Mostly-vertical drags are left to the page so it still scrolls.
+  var startX = 0, startY = 0, dx = 0, dragging = false, decided = false;
+  track.addEventListener("pointerdown", function (e) {
+    if (!narrow.matches || e.pointerType === "mouse") return;
+    startX = e.clientX; startY = e.clientY; dx = 0;
+    dragging = true; decided = false;
+  });
+  track.addEventListener("pointermove", function (e) {
+    if (!dragging) return;
+    var mx = e.clientX - startX, my = e.clientY - startY;
+    if (!decided) {
+      if (Math.abs(mx) < 8 && Math.abs(my) < 8) return;
+      decided = true;
+      if (Math.abs(my) > Math.abs(mx)) { dragging = false; return; }
+      track.classList.add("is-dragging");
+    }
+    // A little resistance past the first and last card.
+    var edge = (current === 0 && mx > 0) || (current === slides.length - 1 && mx < 0);
+    dx = edge ? mx * 0.3 : mx;
+    track.style.setProperty("--drag", dx + "px");
+  });
+  function release() {
+    if (!dragging) return;
+    dragging = false;
+    track.classList.remove("is-dragging");
+    track.style.setProperty("--drag", "0px");
+    var w = track.offsetWidth;
+    if (dx < -w * 0.18) go(current + 1);
+    else if (dx > w * 0.18) go(current - 1);
+    dx = 0;
+  }
+  track.addEventListener("pointerup", release);
+  track.addEventListener("pointercancel", release);
+
+  // The nav's "Areas" link lands on the service area card.
+  function fromHash() {
+    var i = slides.findIndex(function (s) { return s.id && "#" + s.id === location.hash; });
+    if (i > -1 && narrow.matches) go(i);
+  }
+  window.addEventListener("hashchange", fromHash);
+
+  if ("ResizeObserver" in window) {
+    var ro = new ResizeObserver(fit);
+    slides.forEach(function (s) { ro.observe(s); });
+  }
+  window.addEventListener("resize", fit);
+  if (narrow.addEventListener) narrow.addEventListener("change", function () { go(current); });
+
+  slider.classList.add("is-ready");
+  go(0);
+  fromHash();
+})();

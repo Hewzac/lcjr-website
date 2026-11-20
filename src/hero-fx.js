@@ -215,14 +215,16 @@
     function Y(v) { return H - v * T.s + T.by; }
 
     function layout() {
-      T.s = W < 480 ? 0.5 : W < 760 ? 0.66 : W < 1100 ? 0.86 : 1;
+      T.s = W < 480 ? 0.62 : W < 760 ? 0.7 : W < 1100 ? 0.86 : 1;
       T.home = W - TW * T.s - Math.max(14, W * 0.045);
       if (T.state === "park") T.x = T.home;
     }
 
     function spawn(staticPile) {
-      var n = W < 640 ? 7 : W < 1000 ? 10 : 13;
-      var scale = W < 640 ? 0.8 : 1;
+      // Fewer, larger pieces on a phone: easier to hit with a thumb, and
+      // they fit the strip of ground below the headline.
+      var n = W < 480 ? 6 : W < 640 ? 7 : W < 1000 ? 10 : 13;
+      var scale = W < 640 ? 0.92 : 1;
       var left = Math.max(60, T.home - 20);
       for (var i = 0; i < n; i++) {
         var size = rand(40, 60) * scale;
@@ -275,12 +277,15 @@
 
     function hit(x, y) {
       var best = null, bestD = Infinity;
+      // A fingertip is broad and covers what it's aiming at, so touch
+      // reaches further than the mouse.
+      var k = pointer.type === "touch" ? 2 : 1.35;
       for (var i = 0; i < items.length; i++) {
         var it = items[i];
         if (it.gone) continue;
         var dx = x - it.x, dy = y - it.y;
         var d2 = dx * dx + dy * dy;
-        var reach = it.r * 1.35;
+        var reach = it.r * k;
         if (d2 < reach * reach && d2 < bestD) { best = it; bestD = d2; }
       }
       return best;
@@ -350,6 +355,7 @@
         }
         live++;
         if (it.cd) it.cd--;
+        if (it.ghost) it.ghost--;
 
         if (it === held) {
           // A firm spring to the grab point, with a little swing.
@@ -408,6 +414,9 @@
         for (var b = a + 1; b < items.length; b++) {
           var q = items[b];
           if (q.gone) continue;
+          // A piece just lobbed by a tap passes through the pile so the
+          // pile can't knock it off course.
+          if (p.ghost || q.ghost) continue;
           var ddx = q.x - p.x, ddy = q.y - p.y;
           var min = p.r + q.r;
           var dist2 = ddx * ddx + ddy * ddy;
@@ -677,16 +686,12 @@
       else label = pointer.type === "touch" ? "Tap the junk" : "Toss the junk in the truck";
       ctx.save();
       ctx.textAlign = "center";
-      ctx.fillStyle = hauled ? COLOR.brand : "rgba(161, 161, 166, " + (touched ? 0.5 : 0.85) + ")";
-      if (T.s < 0.8) {
-        // Small screens: painted on the side of the bed, clear of the copy.
-        ctx.font = "600 10px " + COLOR.font;
-        ctx.fillText(label, X(92), Y(52));
-      } else {
-        ctx.font = "600 14px " + COLOR.font;
-        var half = ctx.measureText(label).width / 2;
-        ctx.fillText(label, clamp(X(136), half + 10, W - half - 10), Y(122) - 18);
-      }
+      ctx.fillStyle = hauled ? COLOR.brand : "rgba(161, 161, 166, " + (touched ? 0.6 : 0.9) + ")";
+      // Above the cab. On a phone the hero leaves a strip of open ground
+      // below the headline for the truck and the junk, so there is room.
+      ctx.font = "600 " + (T.s < 0.8 ? 13 : 14) + "px " + COLOR.font;
+      var half = ctx.measureText(label).width / 2;
+      ctx.fillText(label, clamp(X(136), half + 10, W - half - 10), Y(122) - (T.s < 0.8 ? 12 : 18));
       ctx.restore();
     }
 
@@ -751,11 +756,26 @@
           // A tap lobs the piece at the truck bed (not always perfectly).
           // No dragging, so the page still scrolls under a thumb.
           if (T.state === "park") {
-            var tx = X(76) + rand(-32, 32) * T.s;
-            var ty = Y(96);
-            var f = rand(38, 50);
-            it.vx = (tx - it.x) / f;
-            it.vy = (ty - it.y - 0.5 * G * f * f) / f;
+            // Aim a little above the middle of the bed, then correct the
+            // throw against a quick dry run so air drag doesn't drop it
+            // short onto the tailgate.
+            var tx = X((BED_L + BED_R) / 2) + rand(-18, 18) * T.s;
+            var ty = Y(RIM + 22);
+            var f = Math.round(rand(36, 44));
+            var vx = (tx - it.x) / f, vy = (ty - it.y - 0.5 * G * f * f) / f;
+            for (var pass = 0; pass < 4; pass++) {
+              var sx = it.x, sy = it.y, svx = vx, svy = vy;
+              for (var k = 0; k < f; k++) {
+                svy += G; svx *= AIR; svy *= AIR;
+                sx += svx; sy += svy;
+              }
+              vx += (tx - sx) / f;
+              vy += (ty - sy) / f;
+            }
+            it.vx = vx;
+            it.vy = vy;
+            it.ghost = f;
+            puff(it.x, it.y, 5, COLOR.brand, 1.4);
           } else {
             it.vy = -rand(10, 14);
             it.vx += rand(-3, 3);

@@ -2252,6 +2252,288 @@ html:not(.js) .tribute:focus-within .tribute-pop {
   .local-points { gap: 18px; }
 }
 
+/* ===================================================== Phones: tidy-up -- */
+/* One alignment (left) under every heading, full-width buttons, shorter
+   cards, and type sized for a phone. The hero keeps a strip of open ground
+   below the headline for the junk game. */
+
+.strip-track { display: block; }
+
+/* Tablets and phones: the headline up top, open ground below it for the
+   truck and the junk, so nothing lands on the words. */
+@media (max-width: 900px) {
+  .js .hero:is([data-fx="yard"], [data-fx="toss"]) .hero-main {
+    align-items: flex-start;
+    padding: 40px 0 230px;
+  }
+}
+.strip-list--echo { display: none; }
+
+@media (max-width: 640px) {
+  /* --- Type --- */
+  h1, .page-head--tight h1, .page-head--slim h1 { font-size: clamp(2.15rem, 10vw, 2.6rem); }
+  .hero-copy h1 { font-size: clamp(2.5rem, 12vw, 2.9rem); margin-bottom: 18px; }
+  h2 { font-size: clamp(1.9rem, 8.6vw, 2.3rem); }
+  .section-head { margin-bottom: 28px; }
+  .section-head h2 + p { font-size: 1.08rem; }
+
+  /* --- Hero: the headline up top, open ground below for the truck and
+         the junk, so nothing lands on the words. --- */
+  .js .hero:is([data-fx="yard"], [data-fx="toss"]) .hero-main {
+    align-items: flex-start;
+    padding: 32px 0 210px;
+  }
+  .hero-copy .lead { font-size: 1.12rem; margin-bottom: 26px; }
+  .hero-from { margin-top: 16px; }
+
+  /* --- The brand strip: one line that scrolls, not four wrapped labels --- */
+  .strip { overflow: hidden; }
+  .strip-track {
+    display: flex;
+    width: max-content;
+    animation: strip-run 26s linear infinite;
+  }
+  .strip-list, .strip-list--echo {
+    display: flex;
+    flex-wrap: nowrap;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 13px 0;
+    gap: 0;
+  }
+  .strip-list li { white-space: nowrap; font-size: .98rem; }
+  .strip-list li::before,
+  .strip-list li + li::before { content: "\00B7"; padding: 0 16px; }
+
+  /* --- Page heads: left-aligned, like everything below them --- */
+  .page-head { text-align: left; padding: 40px 0 8px; }
+  .page-head .breadcrumb { justify-content: flex-start; margin-bottom: 14px; }
+  .page-head h1, .page-head p { margin-inline: 0; }
+  .page-head .lead { margin-top: 16px; font-size: 1.1rem; }
+  .page-head .btn-row { margin-top: 26px; }
+
+  /* --- Buttons that stand alone in a card fill its width --- */
+  .picker-price > .btn,
+  .closer-cta > .btn,
+  .tile--commercial .btn { width: 100%; }
+  .tile--commercial { align-items: stretch; gap: 22px; }
+  .closer-cta > .link-more { align-self: center; }
+
+  /* --- How it works: number beside the words, not above them --- */
+  .steps-row { gap: 10px; }
+  .step-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 16px;
+    row-gap: 4px;
+    padding: 22px;
+  }
+  .step-card .step-no { grid-row: span 2; margin: 0; }
+  .step-card h3 { font-size: 1.15rem; }
+  .step-card p { font-size: 1rem; }
+
+  /* --- Carousel: smaller dots so the controls fit on one line --- */
+  .carousel-dots { gap: 0; }
+  .carousel.is-stage .carousel-controls { gap: 6px; }
+
+  /* --- Commercial: the four facts 2 by 2 --- */
+  .b2b-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; margin-top: 34px; }
+  .b2b-facts li { padding-top: 12px; }
+  .b2b-facts strong { font-size: 1.05rem; }
+  .b2b-facts span { font-size: .95rem; }
+
+  /* The comparison: short labels, tighter rows. */
+  .compare--3 tr { padding: 16px 18px; }
+  .compare--3 td { grid-template-columns: 5.2em minmax(0, 1fr); gap: 12px; font-size: 1rem; }
+  .compare--3 .compare-us { margin: 2px -8px; padding: 8px; }
+  .compare-wrap .compare-note { padding: 12px 18px 16px; }
+
+  .industry { padding: 22px; }
+  .industry .ticks { margin-top: 14px; padding-top: 12px; }
+  .promise-list { gap: 18px; }
+
+  /* --- About: Zach's card with his initials beside his name, the
+         supervisors two across --- */
+  .badge--wide {
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 16px;
+    row-gap: 2px;
+    align-items: center;
+    min-height: 0;
+  }
+  .badge--wide .badge-body { display: contents; }
+  .badge--wide .badge-mono { grid-row: span 2; width: 58px; height: 58px; border-radius: 16px; font-size: 1.25rem; }
+  .badge--wide .badge-role { align-self: end; }
+  .badge--wide .badge-body .badge-name { align-self: start; font-size: 1.6rem; }
+  .badge--wide .badge-body > p { grid-column: 1 / -1; margin-top: 14px; }
+  .badge--wide .tribute { grid-column: 1 / -1; margin-top: 16px; }
+
+  .badges--row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .badges--row .badge--compact { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 20px; }
+  .badges--row .badge--compact .badge-mono { width: 46px; height: 46px; border-radius: 14px; font-size: 1.05rem; }
+  .badges--row .badge--compact .badge-name { font-size: 1.15rem; }
+  .badges--row .badge-role { font-size: .9rem; }
+
+  .values { gap: 0; }
+  .value { padding: 18px 0; }
+  .local-points li { padding-top: 14px; }
+
+  /* --- Quote: the current step gets the room for its name --- */
+  .wiz-steps { display: flex; }
+  .wiz-step { flex: 0 0 46px; }
+  .wiz-step.is-current { flex: 1 1 auto; }
+
+  /* --- Footer: link groups side by side --- */
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 20px; }
+  .footer-brand, .footer-grid > :last-child { grid-column: 1 / -1; }
+}
+
+@keyframes strip-run { to { transform: translateX(-50%); } }
+
+/* Without motion the strip wraps to two lines and stays still. */
+@media (max-width: 640px) and (prefers-reduced-motion: reduce) {
+  .strip-track { width: auto; animation: none; }
+  .strip-list--echo { display: none; }
+  .strip-list { flex-wrap: wrap; justify-content: center; row-gap: 4px; padding-inline: 16px; }
+  .strip-list li:first-child::before { content: none; }
+}
+
+/* ========================================== Home: cards and phone slider -- */
+/* Anything marked hidden stays hidden, whatever display its class sets
+   (the commercial links are hidden this way for now). */
+[hidden] { display: none !important; }
+
+.slider-tabs, .slide-title, .tile-note--short { display: none; }
+
+/* Wider screens: the slider's wrappers drop away and the cards sit in one
+   grid. The steps beside the price tool, then the numbers beside the area. */
+@media (min-width: 901px) {
+  .bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); }
+  .bento .slider, .bento .slider-track, .bento .slide--steps { display: contents; }
+  .bento .tile--stats, .bento .tile--picker, .bento .steps-row, .bento .tile--areas { margin: 0; }
+  .bento .steps-row { grid-row: 1; grid-column: 1 / span 4; grid-template-columns: minmax(0, 1fr); }
+  .bento .tile--picker { grid-row: 1; grid-column: 5 / -1; }
+  .bento .tile--stats { grid-row: 2; grid-column: 1 / span 7; }
+  .bento .tile--areas { grid-row: 2; grid-column: 8 / -1; }
+}
+@media (min-width: 901px) and (max-width: 1100px) {
+  .bento .steps-row { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bento .tile--picker { grid-row: 2; grid-column: 1 / -1; }
+  .bento .tile--stats { grid-row: 3; grid-column: 1 / span 6; }
+  .bento .tile--areas { grid-row: 3; grid-column: 7 / -1; }
+}
+
+/* Phones and tablets: the live numbers, then one card at a time. */
+@media (max-width: 900px) {
+  #how .section-head { display: none; }
+  .bento .tile--stats { margin-bottom: 32px; }
+  .tile-note--long { display: none; }
+  .tile-note--short { display: block; margin-top: 18px; }
+
+  .js .slider-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 14px;
+    padding: 4px;
+    border: 1px solid var(--glass-edge);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .05);
+  }
+  .slider-tabs button {
+    flex: 1;
+    min-height: 42px;
+    border: 0;
+    border-radius: 999px;
+    background: none;
+    color: var(--muted);
+    font: inherit;
+    font-size: .95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color .2s var(--ease), color .2s var(--ease);
+  }
+  .slider-tabs button[aria-current="true"] { background: var(--brand); color: var(--on-brand); }
+
+  /* With the script: a green pill that slides under the buttons, and the
+     cards glide across instead of scrolling. */
+  .slider.is-ready .slider-tabs { position: relative; isolation: isolate; }
+  .slider.is-ready .slider-tabs::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    width: calc((100% - 16px) / 3);
+    border-radius: 999px;
+    background: var(--brand);
+    transform: translateX(calc(var(--i, 0) * (100% + 4px)));
+    transition: transform .45s cubic-bezier(.22, .61, .36, 1);
+  }
+  .slider.is-ready .slider-tabs button { position: relative; background: none; transition: color .3s var(--ease); }
+  .slider.is-ready .slider-tabs button[aria-current="true"] { background: none; }
+
+  .slider.is-ready .slider-track {
+    overflow: hidden;
+    scroll-snap-type: none;
+    touch-action: pan-y;
+    transition: height .45s cubic-bezier(.22, .61, .36, 1);
+  }
+  .js .slider.is-ready .slider-track > * {
+    transform: translateX(calc(var(--i, 0) * (-100% - 16px) + var(--drag, 0px)));
+    transition: transform .45s cubic-bezier(.22, .61, .36, 1), opacity .45s ease;
+  }
+  .js .slider.is-ready .slider-track > .is-off { opacity: .35; }
+  .js .slider.is-ready .slider-track.is-dragging > * { transition: none; }
+
+  .slider-track {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    transition: height .35s var(--ease);
+  }
+  .slider-track::-webkit-scrollbar { display: none; }
+  .slider-track > * { flex: 0 0 100%; min-width: 0; margin: 0; scroll-snap-align: start; }
+  /* Cards off to the side would otherwise wait to fade in until swiped to. */
+  .js .slider-track .reveal { opacity: 1; transform: none; }
+
+  /* The three steps as one card. */
+  .slide--steps {
+    padding: var(--pad);
+    background: var(--glass);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--r-tile);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    backdrop-filter: blur(24px) saturate(150%);
+  }
+  .slide-title { display: block; margin-bottom: 10px; }
+  .slide--steps .steps-row { display: block; }
+  .slide--steps .step-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 16px;
+    row-gap: 4px;
+    padding: 18px 0;
+    background: none;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .slide--steps .step-card:last-child { padding-bottom: 0; }
+  .slide--steps .step-no { grid-row: span 2; margin: 0; }
+  .slide--steps .step-card h3 { font-size: 1.15rem; }
+  .slide--steps .step-card p { font-size: 1rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
